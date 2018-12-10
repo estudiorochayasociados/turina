@@ -1,209 +1,116 @@
- <!-- PARTNERS -->
- <div id="sns_partners" class="wrap">
-                <div class="container">
-                    <div class="slider-wrap">
-                        <div class="partners_slider_in">
-                            <div id="partners_slider1" class="our_partners owl-carousel owl-theme owl-loaded" style="display: inline-block">
-                                <?php
-                                $galerias = new Clases\Galerias();
-                                $imgsFooter = new Clases\Imagenes();
-                                $galeriasData = $galerias->list('');
-                                foreach ($galeriasData as $gal) {
-                                    $imgsFooter->set("cod",$gal['cod']);
-                                    $imgFooter = $imgsFooter->view();    
-                                ?>
-                                    <div class="item">
-                                        <a class="banner11" href="#" target="_blank">
-                                            <img alt="" src="<?=URL. '/' . $imgFooter['ruta'] ?>">
-                                        </a>
+<!-- Start footer area -->
+<footer id="footer" class="footer-area bg-2 bg-opacity-black-90">
+    <div class="footer-top pt-110 pb-80">
+        <div class="container">
+            <div class="row">
+                <!-- footer-address -->
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="footer-widget">
+                        <h6 class="footer-titel">INFORMACIÓN</h6>
+                        <ul class="footer-address">
+                            <li>
+                                <div class="address-icon">
+                                    <img src="<?=URL;?>/images/icons/location-2.png" alt="">
+                                </div>
+                                <div class="address-info">
+                                    <span><?=DIRECCION;?></span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="address-icon">
+                                    <img src="<?=URL;?>/images/icons/phone-3.png" alt="">
+                                </div>
+                                <div class="address-info">
+                                    <span><?=TELEFONO;?><span>
                                     </div>
-                                <?php
-                                }
-                                ?>
-                            </div>
+                                </li>
+                                <li>
+                                    <div class="address-icon">
+                                        <img src="<?=URL;?>/images/icons/world.png" alt="">
+                                    </div>
+                                    <div class="address-info">
+                                        <span>Email : <?=EMAIL;?>/</span>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                </div>
-            <!-- AND PARTNERS -->
-
-           <!-- FOOTER MD LG -->
-            <div id="sns_footer" class="footer_style vesion2 wrap visible-md visible-lg">
-                <div id="sns_footer_top" class="footer">
-                    <div class="container">
-                        <div class="container_in">
-                            <div class="row">
-                                <div class="col-md-3 col-sm-12 col-xs-12 column0">
-                                    <div class="contact_us">
-                                        <h6>Contactanos</h6>
-                                        <ul class="fa-ul">
-                                            <li class="pd-right">
-                                                <i class="fa-li fa fw fa-home"> </i>
-                                                Las Malvinas 930 - San Francisco (CBA)
-                                            </li>
-                                            <li>
-                                                <i class="fa-li fa fw fa-phone"> </i>
-                                                <p>(03564) 438484</p>
-                                                <p>(03564) 443393</p>
-                                            </li>
-                                            <li>
-                                                <i class="fa-li fa fw fa-envelope"> </i>
-                                                <p>
-                                                    <a href="mailto:marketing@pintureriasariel.com.ar">marketing@pintureriasariel.com.ar</a>
-                                                </p>
-                                            </li>
-                                        </ul>
+                    <!-- footer-latest-news -->
+                    <div class="col-lg-6 col-md-5 hidden-sm col-xs-12">
+                        <div class="footer-widget middle">
+                            <h6 class="footer-titel">RECIENTE</h6>
+                            <ul class="footer-latest-news">
+                                <li>
+                                    <div class="latest-news-image">
+                                        <a href="single-blog.html"><img src="images/blog/1.jpg" alt=""></a>
                                     </div>
-                                </div>
-
-                                <div class="col-phone-12 col-xs-6 col-sm-3 col-md-2 column column1">
-                                    <h6>Service</h6>
-                                    <ul>
-                                        <li>
-                                            <a href="#">rices & Currencies</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Secure Payment</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Delivery Times & Costs</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Returns & Exchanges</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">FAQ's</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-phone-12 col-xs-6 col-sm-3 col-md-2 column column2">
-                                    <h6>account</h6>
-                                    <ul>
-                                        <li>
-                                            <a href="#">My account</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Wishlist</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Order history</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Specials</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Gift vouchers</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-phone-12 col-xs-6 col-sm-3 col-md-2 column column3">
-                                    <h6>information</h6>
-                                    <ul>
-                                        <li>
-                                            <a href="#">My account</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Wishlist</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Order history</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Specials</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Gift vouchers</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-phone-12 col-xs-6 col-sm-3 col-md-3 column column4">
-                                    <div class="subcribe-footer">
-                                        <div class="block_border block-subscribe">
-                                            <div class="block_head">
-                                                <h6>Newsletter</h6>
-                                                <p>Register your email for news</p>
-                                            </div>
-                                            <form id="newsletter-validate-detail">
-                                                <div class="block_content">
-                                                    <div class="input-box">
-                                                        <div class="input_warp">
-                                                            <input id="newsletter" class="input-text required-entry validate-email" type="text" title="Sign up for our newsletter" placeholder="Your email here" name="email">
-                                                        </div>
-                                                        <div class="button_warp">
-                                                            <button class="button gfont" title="Subcribe" type="submit">
-                                                                <span>
-                                                                    <span>Subscribe</span>
-                                                                </span>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
+                                    <div class="latest-news-info">
+                                        <h6><a href="single-blog.html">Beautiful Home</a></h6>
+                                        <p>Lorem ipsum dolor sit amet, consectetur acinglit sed do eiusmod tempor inciidunt ut labore </p>
                                     </div>
-                                </div>
-                            </div>
+                                </li>
+                                <li>
+                                    <div class="latest-news-image">
+                                        <a href="single-blog.html"><img src="images/blog/2.jpg" alt=""></a>
+                                    </div>
+                                    <div class="latest-news-info">
+                                        <h6><a href="single-blog.html">Beautiful Home</a></h6>
+                                        <p>Lorem ipsum dolor sit amet, consectetur acinglit sed do eiusmod tempor inciidunt ut labore </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="latest-news-image">
+                                        <a href="single-blog.html"><img src="images/blog/3.jpg" alt=""></a>
+                                    </div>
+                                    <div class="latest-news-info">
+                                        <h6><a href="single-blog.html">Beautiful Home</a></h6>
+                                        <p>Lorem ipsum dolor sit amet, consectetur acinglit sed do eiusmod tempor inciidunt ut labore </p>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                </div>
-
-                <div id="sns_footer_bottom" class="footer">
-                    <div class="container">
-                        <div class="row">
-                            <div class="bottom-pd1 col-sm-12">
-                                <div class="sns-copyright">
-                                    © 2018 Todos los derechos reservados, Pinturerías Ariel. Copyright by <a href="http://www.estudiorochayasoc.com" target="_blank">Estudio Rocha & Asociados</a>
-                                </div>
+                    <!-- footer-contact -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="footer-widget">
+                            <h6 class="footer-titel">CONTACTO RÁPIDO</h6>
+                            <div class="footer-contact">
+                                <p>Lorem ipsum dolor sit amet, consectetur acinglit sed do eiusmod tempor</p>
+                                <form  id="contact-form-2" action="mail_footer.php" method="post">
+                                    <input type="email" name="email2" placeholder="Type your E-mail address...">
+                                    <textarea name="message2" placeholder="Write here..."></textarea>
+                                    <button type="submit" value="send">Send</button>
+                                </form>
+                                <p class="form-messege"></p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- AND FOOTER MD LG-->
-
-            <!-- FOOTER XS-->
-            <div id="sns_footer" class="footer_style vesion2 wrap visible-xs ">
-                <div id="sns_footer_top" class="footer">
-                    <div class="container">
-                        <div class="container_in">
-                            <div class="row">
-                                <div class="col-md-3 col-sm-12 col-xs-12 column0">
-                                    <div class="contact_us">
-                                        <h6>Contactanos</h6>
-                                        <ul class="fa-ul">
-                                            <li class="pd-right">
-                                                <i class="fa-li fa fw fa-home"> </i>
-                                                Las Malvinas 930 - San Francisco (CBA)
-                                            </li>
-                                            <li>
-                                                <i class="fa-li fa fw fa-phone"> </i>
-                                                <p>(03564) 438484</p>
-                                                <p>(03564) 443393</p>
-                                            </li>
-                                            <li>
-                                                <i class="fa-li fa fw fa-envelope"> </i>
-                                                <p>
-                                                    <a href="mailto:marketing@pintureriasariel.com.ar">marketing@pintureriasariel.com.ar</a>
-                                                </p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="sns_footer_bottom" class="footer">
-                    <div class="container">
-                        <div class="row">
-                            <div class="bottom-pd1 col-sm-12">
-                                <div class="sns-copyright">
-                                    © 2018 Todos los derechos reservados, Pinturerías Ariel. Copyright by <a href="http://www.estudiorochayasoc.com" target="_blank">Estudio Rocha & Asociados</a>
-                                </div>
-                            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="copyright text-center">
+                            <p>Copyright &copy; 2018 <a href="http://estudiorochayasoc.com.ar" target="_blank"><b>Estudio Rocha & Asociados</b></a>. Todos los derechos reservados.</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- AND FOOTER MD LG-->
- </div>
+        </div>
+    </footer>
+    <!-- End footer area -->
+
+    <!-- jquery latest version -->
+    <script src="<?=URL;?>/assets/js/vendor/jquery-3.1.1.min.js"></script>
+    <!-- Bootstrap framework js -->
+    <script src="<?=URL;?>/assets/js/bootstrap.min.js"></script>
+    <!-- Nivo slider js -->    
+    <script src="<?=URL;?>/assets/lib/js/jquery.nivo.slider.js"></script>
+    <!-- All js plugins included in this file. -->
+    <script src="<?=URL;?>/assets/js/plugins.js"></script>
+    <!-- ajax-mail js -->
+    <script src="<?=URL;?>/assets/js/ajax-mail.js"></script>
+    <!-- Main js file that contents all jQuery plugins activation. -->
+    <script src="<?=URL;?>/assets/js/main.js"></script>

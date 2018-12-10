@@ -1,4 +1,5 @@
 <?php
+$campos = ["titulo", "precio", "precio_mayorista", "precio_descuento", "stock", "desarrollo", "categoria", "subcategoria", "keywords", "description", "url", "cod_producto", "meli", "imagenes", "variable1", "variable2", "variable3", "variable4", "no_variable5", "no_variable6", "no_variable7", "no_variable8"];
 $productos = new Clases\Productos();
 $imagenes  = new Clases\Imagenes();
 $zebra     = new Clases\Zebra_Image();
@@ -68,11 +69,11 @@ if (isset($_POST["agregar"])) {
     </h4>
     <hr/>
     <form method="post" class="row" enctype="multipart/form-data">
-        <label class="col-md-4">
+        <label class="col-md-4 <?php if (!in_array('titulo', $campos)) {echo 'd-none';}?>" >
             Título:<br/>
             <input type="text" name="titulo">
         </label>
-        <label class="col-md-4">
+        <label class="col-md-4 <?php if (!in_array('categoria', $campos)) {echo 'd-none';}?>" >
             Categoría:<br/>
             <select name="categoria">
                 <option value="" disabled selected>-- categorías --</option> 
@@ -83,48 +84,79 @@ if (isset($_POST["agregar"])) {
                 ?>
             </select>
         </label>
-        <label class="col-md-4">
+        <label class="col-md-4 <?php if (!in_array('stock', $campos)) {echo 'd-none';}?>" >
             Stock:<br/>
             <input type="number" name="stock">
         </label>
-        <div class="clearfix">
-        </div>
-        <label class="col-md-3">
+        <div class="clearfix"></div>
+        <label class="col-md-3 <?php if (!in_array('cod_producto', $campos)) {echo 'd-none';}?>" >
             Código:<br/>
             <input type="text" name="cod_producto">
         </label>
-        <label class="col-md-3">
+        <label class="col-md-3 <?php if (!in_array('precio', $campos)) {echo 'd-none';}?>" >
             Precio:<br/>
             <input type="text" name="precio">
         </label>
-        <label class="col-md-3">
+        <label class="col-md-3 <?php if (!in_array('precio_descuento', $campos)) {echo 'd-none';}?>" >
             Precio Descuento:<br/>
-            <input type="text" name="precioDescuento">
+            <input type="text" name="precio_descuento">
         </label>
-        <label class="col-md-3">
+        <label class="col-md-3 <?php if (!in_array('url', $campos)) {echo 'd-none';}?>" >
             Url:<br/>
             <input type="text" name="url" id="url">
         </label>
-        <div class="clearfix">
-        </div>
-        <label class="col-md-12">
+        <div class="clearfix"></div>
+        <label class="col-md-3 <?php if (!in_array('variable1', $campos)) {echo 'd-none';}?>" >
+            Variable1:<br/>
+            <input type="text" name="variable1" id="variable1">
+        </label>
+        <label class="col-md-3 <?php if (!in_array('variable2', $campos)) {echo 'd-none';}?>" >
+            Variable2:<br/>
+            <input type="text" name="variable2" id="variable2">
+        </label>
+        <label class="col-md-3 <?php if (!in_array('variable3', $campos)) {echo 'd-none';}?>" >
+            Variable3:<br/>
+            <input type="text" name="variable3" id="variable3">
+        </label>
+        <label class="col-md-3 <?php if (!in_array('variable4', $campos)) {echo 'd-none';}?>" >
+            Variable4:<br/>
+            <input type="text" name="variable4" id="variable4">
+        </label>
+        <div class="clearfix"></div>
+        <label class="col-md-3 <?php if (!in_array('variable5', $campos)) {echo 'd-none';}?>" >
+            Variable5:<br/>
+            <input type="text" name="variable5" id="variable5">
+        </label>
+        <label class="col-md-3 <?php if (!in_array('variable6', $campos)) {echo 'd-none';}?>" >
+            Variable6:<br/>
+            <input type="text" name="variable6" id="variable6">
+        </label>
+        <label class="col-md-3 <?php if (!in_array('variable7', $campos)) {echo 'd-none';}?>" >
+            Variable7:<br/>
+            <input type="text" name="variable7" id="variable7">
+        </label>
+        <label class="col-md-3 <?php if (!in_array('variable8', $campos)) {echo 'd-none';}?>" >
+            Variable8:<br/>
+            <input type="text" name="variable8" id="variable8">
+        </label>
+        <div class="clearfix"></div>
+        <label class="col-md-12 <?php if (!in_array('desarrollo', $campos)) {echo 'd-none';}?>" >
             Desarrollo:<br/>
             <textarea name="desarrollo" class="ckeditorTextarea">
             </textarea>
         </label>
-        <div class="clearfix">
-        </div>
-        <label class="col-md-12">
+        <div class="clearfix"></div>
+        <label class="col-md-12 <?php if (!in_array('keywords', $campos)) {echo 'd-none';}?>" >
             Palabras claves dividas por ,<br/>
             <input type="text" name="keywords">
         </label>
-        <label class="col-md-12">
+        <label class="col-md-12 <?php if (!in_array('description', $campos)) {echo 'd-none';}?>" >
             Descripción breve<br/>
             <textarea name="description">
             </textarea>
         </label>
         <br/>
-        <div class="col-md-12">
+        <div class="col-md-12 <?php if (!in_array('meli', $campos)) {echo 'd-none';}?>" >
             <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="meli">
                 <label class="form-check-label" for="meli">
@@ -132,16 +164,14 @@ if (isset($_POST["agregar"])) {
                 </label>
             </div>
         </div>
-        
-        <label class="col-md-7">
+        <label class="col-md-7 <?php if (!in_array('imagenes', $campos)) {echo 'd-none';}?>" >
             Imágenes:<br/>
             <input type="file" id="file" name="files[]" multiple="multiple" accept="image/*" />
         </label>
-        <div class="clearfix">
-        </div>
+        <div class="clearfix"></div>
         <br/>
         <div class="col-md-12">
-            <input type="submit" class="btn btn-primary" name="agregar" value="Crear Productos" />
+            <input type="submit" class="btn btn-primary" name="agregar" value="Crear Producto" />
         </div>
     </form>
 </div>

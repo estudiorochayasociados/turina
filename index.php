@@ -3,910 +3,391 @@ require_once "Config/Autoload.php";
 Config\Autoload::runSitio();
 $template = new Clases\TemplateSite();
 $funciones = new Clases\PublicFunction();
-$template->set("title", "Pinturería Ariel | Inicio");
+$template->set("title", "Turina Inmboliaria");
 $template->set("description", "");
 $template->set("keywords", "");
-$template->set("favicon", LOGO);
+$template->set("imagen", LOGO);
 $template->themeInit();
 //Clases
-$productos = new Clases\Productos();
-$imagenes = new Clases\Imagenes();
-$categorias = new Clases\Categorias();
-$banners = new Clases\Banner();
-$slider = new Clases\Sliders();
-//Banners
-$categoriasData = $categorias->list('');
-foreach ($categoriasData as $val) {
-    if ($val['titulo'] == 'Pie' && $val['area'] == 'banners') {
-        $banners->set("categoria", $val['cod']);
-        $banDataPie = $banners->listForCategory();
-    }
-
-    if ($val['titulo'] == 'Pie 1/2' && $val['area'] == 'banners') {
-        $banners->set("categoria", $val['cod']);
-        $banDataPieMedio = $banners->listForCategory();
-    }
-
-    if ($val['titulo'] == 'Side' && $val['area'] == 'banners') {
-        $banners->set("categoria", $val['cod']);
-        $banDataSide = $banners->listForCategory();
-    }
-    if ($val['area'] == 'sliders') {
-        $slider->set("categoria", $val['cod']);
-        $sliderData = $slider->listForCategory();
-    }
-}
-//Productos
-$categorias->set("area", "productos");
-$categoriasParaProductos = $categorias->listForArea('');
-$productDataCenter1 = $productos->listWithOps('', '', '16');
-$productDataCenter2 = $productos->listWithOps('', '', '8');
-$productDataCenter3 = $productos->listWithOps('', '', '8');
-$productDataSide = $productos->listWithOps('', '', '4');
-$productDataRel = $productos->listWithOps('', '', '');
 ?>
 
-    <body id="bd" class=" cms-index-index2 header-style2 cms-simen-home-page-v2 default cmspage">
-    <div id="sns_wrapper">
-        <?php $template->themeNav(); ?>
-    <!-- CONTENT -->
-    <div id="sns_content" class="wrap layout-m">
+<!-- SLIDER SECTION START -->
+<div class="slider-3 youtube-bg bg-opacity-black-10">
+    <div class="slider-content-3 text-center">
+        <div class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
+            <h1 class="slider-1-title-2">ENCONTRÁ LA CASA DE TUS SUEÑOS</h1>
+        </div>
+        <!--<div class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="2s">
+            <a class="slider-button mt-40" href="#">Read More</a>
+        </div>-->
+    </div>
+</div>
+<!-- SLIDER SECTION END -->
+
+<!-- Start page content -->
+<section id="page-content" class="page-wrapper">
+    <!-- FEATURED FLAT AREA START -->
+    <div class="featured-flat-area pt-115 pb-80">
         <div class="container">
-            <!-- sns_left -->
             <div class="row">
-                <?php
-                $template->themeSideIndex();
-                ?>
-                <!-- sns_main -->
-                <div id="sns_main" class="col-md-9 col-main">
-                    <div id="sns_mainmidle">
-                        <div id="sns_slideshow2">
-                            <div id="header-slideshow">
-                                <div class="row">
-                                    <div class="slideshows col-md-8 col-sm-8">
-                                        <?php
-                                        if (count($sliderData) > 1) {
-                                            ?>
-                                            <div id="slider123" class="owl-carousel owl-theme"
-                                                 style="overflow: hidden;width: 100% !important">
-                                                <?php
-                                                foreach ($sliderData as $sli) {
-                                                    $imagenes->set("cod", $sli['cod']);
-                                                    $imgCarousel = $imagenes->view();
-                                                    ?>
-                                                    <div class=" style1">
-                                                        <img src="<?= URL . '/' . $imgCarousel['ruta'] ?>"
-                                                             alt="<?= $sli['titulo']; ?>">
-                                                    </div>
-                                                    <?php
-                                                }
-                                                ?>
+                <div class="col-md-12">
+                    <div class="section-title-2 text-center">
+                        <h2>Featured PROPERTY</h2>
+                        <p>Sheltek is the best theme for  elit, sed do eiusmod tempor dolor sit amet, conse ctetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et lorna aliquatd minim veniam, quis nostrud</p>
+                    </div>
+                </div>
+            </div>
+            <div class="featured-flat">
+                <div class="row">
+                    <!-- flat-item -->
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="flat-item">
+                            <div class="flat-item-image">
+                                <span class="for-sale">For Sale</span>
+                                <a href="properties-details.html"><img src="images/flat/1.jpg" alt=""></a>
+                                <div class="flat-link">
+                                    <a href="properties-details.html">More Details</a>
+                                </div>
+                                <ul class="flat-desc">
+                                    <li>
+                                        <img src="images/icons/4.png" alt="">
+                                        <span>450 sqft</span>
+                                    </li>
+                                    <li>
+                                        <img src="images/icons/5.png" alt="">
+                                        <span>5</span>
+                                    </li>
+                                    <li>
+                                        <img src="images/icons/6.png" alt="">
+                                        <span>3</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="flat-item-info">
+                                <div class="flat-title-price">
+                                    <h5><a href="properties-details.html">Masons de Villa </a></h5>
+                                    <span class="price">$52,350</span>
+                                </div>
+                                <p><img src="images/icons/location.png" alt="">568 E 1st Ave, Ney Jersey</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- flat-item -->
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="flat-item">
+                            <div class="flat-item-image">
+                                <a href="properties-details.html"><img src="images/flat/2.jpg" alt=""></a>
+                                <div class="flat-link">
+                                    <a href="properties-details.html">More Details</a>
+                                </div>
+                                <ul class="flat-desc">
+                                    <li>
+                                        <img src="images/icons/4.png" alt="">
+                                        <span>450 sqft</span>
+                                    </li>
+                                    <li>
+                                        <img src="images/icons/5.png" alt="">
+                                        <span>5</span>
+                                    </li>
+                                    <li>
+                                        <img src="images/icons/6.png" alt="">
+                                        <span>3</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="flat-item-info">
+                                <div class="flat-title-price">
+                                    <h5><a href="properties-details.html">Masons de Villa </a></h5>
+                                    <span class="price">$52,350</span>
+                                </div>
+                                <p><img src="images/icons/location.png" alt="">568 E 1st Ave, Ney Jersey</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- flat-item -->
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="flat-item">
+                            <div class="flat-item-image">
+                                <span class="for-sale rent">For rent</span>
+                                <a href="properties-details.html"><img src="images/flat/3.jpg" alt=""></a>
+                                <div class="flat-link">
+                                    <a href="properties-details.html">More Details</a>
+                                </div>
+                                <ul class="flat-desc">
+                                    <li>
+                                        <img src="images/icons/4.png" alt="">
+                                        <span>450 sqft</span>
+                                    </li>
+                                    <li>
+                                        <img src="images/icons/5.png" alt="">
+                                        <span>5</span>
+                                    </li>
+                                    <li>
+                                        <img src="images/icons/6.png" alt="">
+                                        <span>3</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="flat-item-info">
+                                <div class="flat-title-price">
+                                    <h5><a href="properties-details.html">Masons de Villa </a></h5>
+                                    <span class="price">$52,350</span>
+                                </div>
+                                <p><img src="images/icons/location.png" alt="">568 E 1st Ave, Ney Jersey</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- flat-item -->
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="flat-item">
+                            <div class="flat-item-image">
+                                <a href="properties-details.html"><img src="images/flat/4.jpg" alt=""></a>
+                                <div class="flat-link">
+                                    <a href="properties-details.html">More Details</a>
+                                </div>
+                                <ul class="flat-desc">
+                                    <li>
+                                        <img src="images/icons/4.png" alt="">
+                                        <span>450 sqft</span>
+                                    </li>
+                                    <li>
+                                        <img src="images/icons/5.png" alt="">
+                                        <span>5</span>
+                                    </li>
+                                    <li>
+                                        <img src="images/icons/6.png" alt="">
+                                        <span>3</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="flat-item-info">
+                                <div class="flat-title-price">
+                                    <h5><a href="properties-details.html">Masons de Villa </a></h5>
+                                    <span class="price">$52,350</span>
+                                </div>
+                                <p><img src="images/icons/location.png" alt="">568 E 1st Ave, Ney Jersey</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- flat-item -->
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="flat-item">
+                            <div class="flat-item-image">
+                                <span class="for-sale">For Sale</span>
+                                <a href="properties-details.html"><img src="images/flat/5.jpg" alt=""></a>
+                                <div class="flat-link">
+                                    <a href="properties-details.html">More Details</a>
+                                </div>
+                                <ul class="flat-desc">
+                                    <li>
+                                        <img src="images/icons/4.png" alt="">
+                                        <span>450 sqft</span>
+                                    </li>
+                                    <li>
+                                        <img src="images/icons/5.png" alt="">
+                                        <span>5</span>
+                                    </li>
+                                    <li>
+                                        <img src="images/icons/6.png" alt="">
+                                        <span>3</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="flat-item-info">
+                                <div class="flat-title-price">
+                                    <h5><a href="properties-details.html">Masons de Villa </a></h5>
+                                    <span class="price">$52,350</span>
+                                </div>
+                                <p><img src="images/icons/location.png" alt="">568 E 1st Ave, Ney Jersey</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- flat-item -->
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="flat-item">
+                            <div class="flat-item-image">
+                                <a href="properties-details.html"><img src="images/flat/6.jpg" alt=""></a>
+                                <div class="flat-link">
+                                    <a href="properties-details.html">More Details</a>
+                                </div>
+                                <ul class="flat-desc">
+                                    <li>
+                                        <img src="images/icons/4.png" alt="">
+                                        <span>450 sqft</span>
+                                    </li>
+                                    <li>
+                                        <img src="images/icons/5.png" alt="">
+                                        <span>5</span>
+                                    </li>
+                                    <li>
+                                        <img src="images/icons/6.png" alt="">
+                                        <span>3</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="flat-item-info">
+                                <div class="flat-title-price">
+                                    <h5><a href="properties-details.html">Masons de Villa </a></h5>
+                                    <span class="price">$52,350</span>
+                                </div>
+                                <p><img src="images/icons/location.png" alt="">568 E 1st Ave, Ney Jersey</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- flat-item -->
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="flat-item">
+                            <div class="flat-item-image">
+                                <span class="for-sale rent">For rent</span>
+                                <a href="properties-details.html"><img src="images/flat/7.jpg" alt=""></a>
+                                <div class="flat-link">
+                                    <a href="properties-details.html">More Details</a>
+                                </div>
+                                <ul class="flat-desc">
+                                    <li>
+                                        <img src="images/icons/4.png" alt="">
+                                        <span>450 sqft</span>
+                                    </li>
+                                    <li>
+                                        <img src="images/icons/5.png" alt="">
+                                        <span>5</span>
+                                    </li>
+                                    <li>
+                                        <img src="images/icons/6.png" alt="">
+                                        <span>3</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="flat-item-info">
+                                <div class="flat-title-price">
+                                    <h5><a href="properties-details.html">Masons de Villa </a></h5>
+                                    <span class="price">$52,350</span>
+                                </div>
+                                <p><img src="images/icons/location.png" alt="">568 E 1st Ave, Ney Jersey</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- flat-item -->
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="flat-item">
+                            <div class="flat-item-image">
+                                <a href="properties-details.html"><img src="images/flat/8.jpg" alt=""></a>
+                                <div class="flat-link">
+                                    <a href="properties-details.html">More Details</a>
+                                </div>
+                                <ul class="flat-desc">
+                                    <li>
+                                        <img src="images/icons/4.png" alt="">
+                                        <span>450 sqft</span>
+                                    </li>
+                                    <li>
+                                        <img src="images/icons/5.png" alt="">
+                                        <span>5</span>
+                                    </li>
+                                    <li>
+                                        <img src="images/icons/6.png" alt="">
+                                        <span>3</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="flat-item-info">
+                                <div class="flat-title-price">
+                                    <h5><a href="properties-details.html">Masons de Villa </a></h5>
+                                    <span class="price">$52,350</span>
+                                </div>
+                                <p><img src="images/icons/location.png" alt="">568 E 1st Ave, Ney Jersey</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- flat-item -->
+                    <div class="col-md-4 hidden-sm col-xs-12">
+                        <div class="flat-item">
+                            <div class="flat-item-image">
+                                <span class="for-sale">For Sale</span>
+                                <a href="properties-details.html"><img src="images/flat/9.jpg" alt=""></a>
+                                <div class="flat-link">
+                                    <a href="properties-details.html">More Details</a>
+                                </div>
+                                <ul class="flat-desc">
+                                    <li>
+                                        <img src="images/icons/4.png" alt="">
+                                        <span>450 sqft</span>
+                                    </li>
+                                    <li>
+                                        <img src="images/icons/5.png" alt="">
+                                        <span>5</span>
+                                    </li>
+                                    <li>
+                                        <img src="images/icons/6.png" alt="">
+                                        <span>3</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="flat-item-info">
+                                <div class="flat-title-price">
+                                    <h5><a href="properties-details.html">Masons de Villa </a></h5>
+                                    <span class="price">$52,350</span>
+                                </div>
+                                <p><img src="images/icons/location.png" alt="">568 E 1st Ave, Ney Jersey</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FEATURED FLAT AREA END -->
+
+    <!-- FEATURES AREA START -->
+            <div class="features-area fix">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-7 col-md-offset-5">
+                            <div class="features-info bg-gray">
+                                <div class="section-title mb-30">
+                                    <h3>HERE IS</h3>
+                                    <h2 class="h1">AWESOME FEATUES</h2>
+                                </div>
+                                <div class="features-desc">
+                                    <p><span data-placement="top" data-toggle="tooltip" data-original-title="The name you can trust" class="tooltip-content">Sheltek</span> is the best theme for  elit, sed do eiusmod tempor dolor sit amet, conse ctetur adipiscing elit, sed do smod tempor incididunt ut labore et lorna aliquatd minim veniam, quis nostrud exercitation oris nisi</p>
+                                </div>
+                                <div class="features-include">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-6 col-sm-4">
+                                            <div class="features-include-list">
+                                                <h6><img src="images/icons/7.png" alt="">Fully Furnished</h6>
+                                                <p>Lorem is a dummy text do eiud tempor dolor sit amet dum</p>
                                             </div>
-                                            <?php
-
-                                        } else {
-                                            ?>
-                                            <div style="overflow: hidden;width: 100% !important">
-                                                <?php
-                                                foreach ($sliderData as $sli) {
-                                                    $imagenes->set("cod", $sli['cod']);
-                                                    $imgCarousel = $imagenes->view();
-                                                    ?>
-                                                    <div class=" style1">
-                                                        <img src="<?= URL . '/' . $imgCarousel['ruta'] ?>"
-                                                             alt="<?= $sli['titulo']; ?>">
-                                                    </div>
-                                                    <?php
-                                                }
-                                                ?>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6 col-sm-4">
+                                            <div class="features-include-list">
+                                                <h6><img src="images/icons/7.png" alt="">Royal Touch Paint</h6>
+                                                <p>Lorem is a dummy text do eiud tempor dolor sit amet dum</p>
                                             </div>
-                                            <?php
-                                        }
-                                        ?>
-                                    </div>
-                                    <!-- Banner -->
-                                    <div class="banner-right col-md-4 col-sm-4">
-                                        <div class="banner6 pdno col-md-12 col-sm-12">
-                                            <?php
-                                            if (count($banDataSide) >= 2) {
-                                                $banRandSide2 = $banDataSide[array_rand($banDataSide)];
-                                                $imagenes->set("cod", $banRandSide2['cod']);
-                                                $imgRandSide2 = $imagenes->view();
-                                                $banners->set("id", $banRandSide2['id']);
-                                                $value = $banRandSide2['vistas'] + 1;
-                                                $banners->set("vistas", $value);
-                                                $banners->increaseViews();
-                                                ?>
-                                                <div class="banner7 banner6  banner5 col-md-12 col-sm-12">
-                                                    <a href="<?= $banRandSide2['link'] ?>">
-                                                        <img src="<?= URL . '/' . $imgRandSide2['ruta'] ?>"
-                                                             alt="<?= $banRandSide2['nombre'] ?>">
-                                                    </a>
-                                                </div>
-                                                <?php
-                                                if (($key = array_search($banRandSide2, $banDataSide)) !== false) {
-                                                    unset($banDataSide[$key]);
-                                                }
-                                                $banRandSide3 = $banDataSide[array_rand($banDataSide)];
-                                                $imagenes->set("cod", $banRandSide3['cod']);
-                                                $imgRandSide3 = $imagenes->view();
-                                                $banners->set("id", $banRandSide3['id']);
-                                                $value = $banRandSide3['vistas'] + 1;
-                                                $banners->set("vistas", $value);
-                                                $banners->increaseViews();
-                                                ?>
-                                                <div class="banner8 banner6  banner5 col-md-12 col-sm-12">
-                                                    <a href="<?= $banRandSide3['link'] ?>">
-                                                        <img src="<?= URL . '/' . $imgRandSide3['ruta'] ?>"
-                                                             alt="<?= $banRandSide3['nombre'] ?>">
-                                                    </a>
-                                                </div>
-                                                <?php
-                                                if (($key = array_search($banRandSide3, $banDataSide)) !== false) {
-                                                    unset($banDataSide[$key]);
-                                                }
-                                            }
-                                            ?>
                                         </div>
-                                    </div>
-                                    <!-- End Banner -->
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div id="sns_producttaps1" class="sns_producttaps_wraps">
-                            <!-- Tab panes -->
-                            <div class="products-upsell">
-                                <div class="detai-products1">
-                                    <div class="title">
-                                        <h3>Productos más recientes</h3>
-                                    </div>
-                                    <div class="products-grid">
-                                        <div id="related_upsell" class="item-row owl-carousel owl-theme"
-                                             style="display: inline-block">
-                                            <?php
-                                            foreach ($productDataCenter1 as $productosCenter1) {
-                                                $imagenes->set("cod", $productosCenter1['cod']);
-                                                $imgProRel1 = $imagenes->view();
-                                                ?>
-                                                <div class="item">
-                                                    <div class="item-inner">
-                                                        <div class="prd">
-                                                            <div class="item-img clearfix">
-                                                                <div class="ico-label">
-                                                                    <?php
-                                                                    if ($productosCenter1['precioDescuento'] > 0) {
-                                                                        ?>
-                                                                        <span class="ico-product ico-sale">Promo</span>
-                                                                        <?php
-                                                                    }
-                                                                    ?>
-                                                                </div>
-                                                                <a class="product-image have-additional"
-                                                                   href="<?php echo URL . '/producto/' . $funciones->normalizar_link($productosCenter1['titulo']) . "/" . $productosCenter1['id'] ?>">
-                                                            <span class="img-main"
-                                                                  style="height:200px;background:url(<?= URL . '/' . $imgProRel1['ruta'] ?>) no-repeat center center/contain;">
-                                                            </span>
-                                                                </a>
-                                                            </div>
-                                                            <div class="item-info">
-                                                                <div class="info-inner">
-                                                                    <div class="item-title">
-                                                                        <a href="<?php echo URL . '/producto/' . $funciones->normalizar_link($productosCenter1['titulo']) . "/" . $productosCenter1['id'] ?>">
-                                                                            <?= ucfirst($productosCenter1['titulo']) ?> </a>
-                                                                    </div>
-                                                                    <div class="item-price">
-                                                                        <div class="price-box">
-                                                                        <span class="regular-price">
-                                                                            <span class="price">
-                                                                                <?php
-                                                                                if ($productosCenter1['precioDescuento'] > 0) {
-                                                                                    ?>
-                                                                                    <span class="precio1">$ <?= $productosCenter1['precioDescuento']; ?></span>
-                                                                                    <span class="precio2">$ <?= $productosCenter1['precio']; ?></span>
-                                                                                    <?php
-
-                                                                                } else {
-                                                                                    ?>
-                                                                                    <span class="precio1">$ <?= $productosCenter1['precio']; ?></span>
-                                                                                    <?php
-                                                                                }
-                                                                                ?>
-                                                                            </span>
-                                                                        </span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <?php
-                                            }
-                                            ?>
+                                        <div class="col-lg-4 col-md-6 col-sm-4">
+                                            <div class="features-include-list">
+                                                <h6><img src="images/icons/7.png" alt="">Latest Interior Design</h6>
+                                                <p>Lorem is a dummy text do eiud tempor dolor sit amet dum</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Banner 870x110 -->
-                        <?php
-
-                        if (count($banDataPie) != '') {
-                            $banRandPie = $banDataPie[array_rand($banDataPie)];
-                            $imagenes->set("cod", $banRandPie['cod']);
-                            $imgRandPie = $imagenes->view();
-                            $banners->set("id", $banRandPie['id']);
-                            $valuePie = $banRandPie['vistas'] + 1;
-                            $banners->set("vistas", $valuePie);
-                            $banners->increaseViews();
-                            ?>
-                            <div class="sns_banner_page2">
-                                <div class="banner5">
-                                    <a href="<?= $banRandPie['link'] ?>">
-                                        <img src="<?= URL . '/' . $imgRandPie['ruta'] ?>"
-                                             alt="<?= $banRandPie['nombre'] ?>" style="width:100%;">
-                                    </a>
-                                </div>
-                            </div>
-                            <?php
-                        }
-                        ?>
-
-                        <div id="sns_slider1_page2" class="sns-slider-wraps sns_producttaps_wraps visible-md visible-lg">
-
-                            <h3 class="precar">office chair</h3>
-
-                            <!-- Tab panes -->
-                            <div class="tab-content visible-lg ">
-                                <div class="content-loading"></div>
-                                <div role="tabpanel" class="tab-pane active" id="chair">
-                                    <div class="taps-slider1 products-grid row style_grid owl-carousel owl-theme owl-loaded">
-                                        <div class="taps-slider">
-                                            <?php
-                                            $cont = 0;
-                                            foreach ($productDataCenter2 as $productosCenter2) {
-                                                if ($cont < 4) {
-                                                    $imagenes->set("cod", $productosCenter2['cod']);
-                                                    $imgProCenter2 = $imagenes->view();
-                                                    ?>
-                                                    <div class="item col-lg-3 col-md-4 col-sm-4 col-xs-6 col-phone-12">
-                                                        <div class="item-inner">
-                                                            <div class="prd">
-                                                                <div class="item-img clearfix">
-                                                                    <div class="ico-label">
-                                                                        <?php
-                                                                        if ($productosCenter2['precioDescuento'] > 0) {
-                                                                            ?>
-                                                                            <span class="ico-product ico-sale">Promo</span>
-                                                                            <?php
-                                                                        }
-                                                                        ?>
-                                                                    </div>
-                                                                    <a class="product-image have-additional"
-                                                                       href="<?php echo URL . '/producto/' . $funciones->normalizar_link($productosCenter2['titulo']) . "/" . $productosCenter2['id'] ?>">
-                                                        <span class="img-main"
-                                                              style="height:200px;background:url(<?= URL . '/' . $imgProCenter2['ruta'] ?>)no-repeat center center/contain;">
-                                                        </span>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="item-info">
-                                                                    <div class="info-inner">
-                                                                        <div class="item-title">
-                                                                            <a title="Modular Modern"
-                                                                               href="<?php echo URL . '/producto/' . $funciones->normalizar_link($productosCenter2['titulo']) . "/" . $productosCenter2['id'] ?>">
-                                                                                <?= ucfirst($productosCenter2['titulo']) ?> </a>
-                                                                        </div>
-                                                                        <div class="item-price">
-                                                                            <div class="price-box">
-                                                            <span class="regular-price">
-                                                                <span class="price">
-                                                                    <?php
-                                                                    if ($productosCenter2['precioDescuento'] > 0) {
-                                                                        ?>
-                                                                        <span class="precio1">$ <?= $productosCenter2['precioDescuento']; ?></span>
-                                                                        <span class="precio2">$ <?= $productosCenter2['precio']; ?></span>
-                                                                        <?php
-
-                                                                    } else {
-                                                                        ?>
-                                                                        <span class="precio1">$ <?= $productosCenter2['precio']; ?></span>
-                                                                        <?php
-
-                                                                    }
-                                                                    ?>
-                                                                </span>
-                                                            </span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <?php
-                                                    $cont++;
-                                                    if (($key = array_search($productosCenter2, $productDataCenter2)) !== false) {
-                                                        unset($productDataCenter2[$key]);
-                                                    }
-                                                }
-                                            }
-                                            ?>
+                                        <div class="col-lg-4 col-md-6 col-sm-4">
+                                            <div class="features-include-list">
+                                                <h6><img src="images/icons/7.png" alt="">Non Stop Security</h6>
+                                                <p>Lorem is a dummy text do eiud tempor dolor sit amet dum</p>
+                                            </div>
                                         </div>
-                                        <div class="taps-slider">
-                                            <?php
-                                            $cont = 0;
-                                            foreach ($productDataCenter2 as $productosCenter2) {
-                                                if ($cont < 4) {
-                                                    $imagenes->set("cod", $productosCenter2['cod']);
-                                                    $imgProCenter2 = $imagenes->view();
-                                                    ?>
-                                                    <div class="item col-lg-3 col-md-4 col-sm-4 col-xs-6 col-phone-12">
-                                                        <div class="item-inner">
-                                                            <div class="prd">
-                                                                <div class="item-img clearfix">
-                                                                    <div class="ico-label">
-                                                                        <?php
-                                                                        if ($productosCenter2['precioDescuento'] > 0) {
-                                                                            ?>
-                                                                            <span class="ico-product ico-sale">Promo</span>
-                                                                            <?php
-
-                                                                        }
-                                                                        ?>
-                                                                    </div>
-                                                                    <a class="product-image have-additional"
-
-                                                                       href="<?php echo URL . '/producto/' . $funciones->normalizar_link($productosCenter2['titulo']) . "/" . $productosCenter2['id'] ?>">
-                                <span class="img-main"
-                                      style="height:200px;background:url(<?= URL . '/' . $imgProCenter2['ruta'] ?>)no-repeat center center/contain;">
-                                </span>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="item-info">
-                                                                    <div class="info-inner">
-                                                                        <div class="item-title">
-                                                                            <a
-                                                                                    href="<?php echo URL . '/producto/' . $funciones->normalizar_link($productosCenter2['titulo']) . "/" . $productosCenter2['id'] ?>">
-                                                                                <?= ucfirst($productosCenter2['titulo']) ?> </a>
-                                                                        </div>
-                                                                        <div class="item-price">
-                                                                            <div class="price-box">
-                                    <span class="regular-price">
-                                        <span class="price">
-                                            <?php
-                                            if ($productosCenter2['precioDescuento'] > 0) {
-                                                ?>
-                                                <span class="precio1">$ <?= $productosCenter2['precioDescuento']; ?></span>
-                                                <span class="precio2">$ <?= $productosCenter2['precio']; ?></span>
-                                                <?php
-
-                                            } else {
-                                                ?>
-                                                <span class="precio1">$ <?= $productosCenter2['precio']; ?></span>
-                                                <?php
-
-                                            }
-                                            ?>
-                                        </span>
-                                    </span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <?php
-                                                    $cont++;
-                                                }
-                                            }
-                                            ?>
+                                        <div class="col-lg-4 col-md-6 col-sm-4">
+                                            <div class="features-include-list">
+                                                <h6><img src="images/icons/7.png" alt="">Living Inside a Nature</h6>
+                                                <p>Lorem is a dummy text do eiud tempor dolor sit amet dum</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="tab-content visible-md">
-                                <div class="content-loading"></div>
-                                <div role="tabpanel" class="tab-pane active" id="chair">
-                                    <div class="taps-slider1 products-grid row style_grid owl-carousel owl-theme owl-loaded">
-                                        <div class="taps-slider">
-                                            <?php
-                                            $cont = 0;
-                                            foreach ($productDataCenter2 as $productosCenter2) {
-                                                if ($cont < 3) {
-                                                    $imagenes->set("cod", $productosCenter2['cod']);
-                                                    $imgProCenter2 = $imagenes->view();
-                                                    ?>
-                                                    <div class="item col-lg-3 col-md-4 col-sm-4 col-xs-6 col-phone-12">
-                                                        <div class="item-inner">
-                                                            <div class="prd">
-                                                                <div class="item-img clearfix">
-                                                                    <div class="ico-label">
-                                                                        <?php
-                                                                        if ($productosCenter2['precioDescuento'] > 0) {
-                                                                            ?>
-                                                                            <span class="ico-product ico-sale">Promo</span>
-                                                                            <?php
-
-                                                                        }
-                                                                        ?>
-                                                                    </div>
-                                                                    <a class="product-image have-additional"
-                                                                       href="<?php echo URL . '/producto/' . $funciones->normalizar_link($productosCenter2['titulo']) . "/" . $productosCenter2['id'] ?>">
-                                                        <span class="img-main"
-                                                              style="height:200px;background:url(<?= URL . '/' . $imgProCenter2['ruta'] ?>)no-repeat center center/contain;">
-                                                        </span>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="item-info">
-                                                                    <div class="info-inner">
-                                                                        <div class="item-title">
-                                                                            <a title="Modular Modern"
-                                                                               href="<?php echo URL . '/producto/' . $funciones->normalizar_link($productosCenter2['titulo']) . "/" . $productosCenter2['id'] ?>">
-                                                                                <?= ucfirst($productosCenter2['titulo']) ?> </a>
-                                                                        </div>
-                                                                        <div class="item-price">
-                                                                            <div class="price-box">
-                                                            <span class="regular-price">
-                                                                <span class="price">
-                                                                    <?php
-                                                                    if ($productosCenter2['precioDescuento'] > 0) {
-                                                                        ?>
-                                                                        <span class="precio1">$ <?= $productosCenter2['precioDescuento']; ?></span>
-                                                                        <span class="precio2">$ <?= $productosCenter2['precio']; ?></span>
-                                                                        <?php
-
-                                                                    } else {
-                                                                        ?>
-                                                                        <span class="precio1">$ <?= $productosCenter2['precio']; ?></span>
-                                                                        <?php
-
-                                                                    }
-                                                                    ?>
-                                                                </span>
-                                                            </span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <?php
-                                                    $cont++;
-                                                    if (($key = array_search($productosCenter2, $productDataCenter2)) !== false) {
-                                                        unset($productDataCenter2[$key]);
-                                                    }
-                                                }
-                                            }
-                                            ?>
-                                        </div>
-                                        <div class="taps-slider">
-                                            <?php
-                                            $cont = 0;
-                                            foreach ($productDataCenter2 as $productosCenter2) {
-                                                if ($cont < 3) {
-                                                    $imagenes->set("cod", $productosCenter2['cod']);
-                                                    $imgProCenter2 = $imagenes->view();
-                                                    ?>
-                                                    <div class="item col-lg-3 col-md-4 col-sm-4 col-xs-6 col-phone-12">
-                                                        <div class="item-inner">
-                                                            <div class="prd">
-                                                                <div class="item-img clearfix">
-                                                                    <div class="ico-label">
-                                                                        <?php
-                                                                        if ($productosCenter2['precioDescuento'] > 0) {
-                                                                            ?>
-                                                                            <span class="ico-product ico-sale">Promo</span>
-                                                                            <?php
-
-                                                                        }
-                                                                        ?>
-                                                                    </div>
-                                                                    <a class="product-image have-additional"
-
-                                                                       href="<?php echo URL . '/producto/' . $funciones->normalizar_link($productosCenter2['titulo']) . "/" . $productosCenter2['id'] ?>">
-                                <span class="img-main"
-                                      style="height:200px;background:url(<?= URL . '/' . $imgProCenter2['ruta'] ?>)no-repeat center center/contain;">
-                                </span>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="item-info">
-                                                                    <div class="info-inner">
-                                                                        <div class="item-title">
-                                                                            <a
-                                                                                    href="<?php echo URL . '/producto/' . $funciones->normalizar_link($productosCenter2['titulo']) . "/" . $productosCenter2['id'] ?>">
-                                                                                <?= ucfirst($productosCenter2['titulo']) ?> </a>
-                                                                        </div>
-                                                                        <div class="item-price">
-                                                                            <div class="price-box">
-                                    <span class="regular-price">
-                                        <span class="price">
-                                            <?php
-                                            if ($productosCenter2['precioDescuento'] > 0) {
-                                                ?>
-                                                <span class="precio1">$ <?= $productosCenter2['precioDescuento']; ?></span>
-                                                <span class="precio2">$ <?= $productosCenter2['precio']; ?></span>
-                                                <?php
-
-                                            } else {
-                                                ?>
-                                                <span class="precio1">$ <?= $productosCenter2['precio']; ?></span>
-                                                <?php
-
-                                            }
-                                            ?>
-                                        </span>
-                                    </span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <?php
-                                                    $cont++;
-                                                }
-                                            }
-                                            ?>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Banner 425x110 -->
-                        <?php
-                        if (count($banDataPieMedio) >= 2) {
-                            $banRandPieMedio = $banDataPieMedio[array_rand($banDataPieMedio)];
-                            $imagenes->set("cod", $banRandPieMedio['cod']);
-                            $imgRandPieMedio = $imagenes->view();
-                            $banners->set("id", $banRandPieMedio['id']);
-                            $value = $banRandPieMedio['vistas'] + 1;
-                            $banners->set("vistas", $value);
-                            $banners->increaseViews();
-                            ?>
-                            <div class="sns_banner1">
-                                <div class="row">
-                                    <div class="col-md-6 col-sm-6">
-                                        <div class="banner-content banner5">
-                                            <a href="<?= $banRandPieMedio['link'] ?>">
-                                                <img src="<?= URL . '/' . $imgRandPieMedio['ruta'] ?>"
-                                                     alt="<?= $banRandPieMedio['nombre'] ?>">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <?php
-                                    if (($key = array_search($banRandPieMedio, $banDataPieMedio)) !== false) {
-                                        unset($banDataPieMedio[$key]);
-                                    }
-                                    $banRandPieMedio2 = $banDataPieMedio[array_rand($banDataPieMedio)];
-                                    $imagenes->set("cod", $banRandPieMedio2['cod']);
-                                    $imgRandPieMedio2 = $imagenes->view();
-                                    $banners->set("id", $banRandPieMedio2['id']);
-                                    $value = $banRandPieMedio2['vistas'] + 1;
-                                    $banners->set("vistas", $value);
-                                    $banners->increaseViews();
-                                    ?>
-                                    <div class="col-md-6 col-sm-6">
-                                        <div class="banner-content banner5 style-banner2">
-                                            <a href="<?= $banRandPieMedio2['link'] ?>">
-                                                <img src="<?= URL . '/' . $imgRandPieMedio2['ruta'] ?>"
-                                                     alt="<?= $banRandPieMedio2['nombre'] ?>">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php
-                            if (($key = array_search($banRandPieMedio2, $banDataPieMedio)) !== false) {
-                                unset($banDataPieMedio[$key]);
-                            }
-                        }
-                        ?>
-
-
-                        <div id="sns_slider2_page2" class="sns-slider-wraps sns_producttaps_wraps visible-md visible-lg">
-                            <h3 class="precar">office chair</h3>
-
-                            <!-- Tab panes -->
-                            <div class="tab-content visible-lg">
-                                <div class="content-loading"></div>
-                                <div role="tabpanel" class="tab-pane active" id="chair">
-                                    <div class="taps-slider1 products-grid row style_grid owl-carousel owl-theme owl-loaded">
-                                        <div class="taps-slider">
-                                            <?php
-                                            $cont = 0;
-                                            foreach ($productDataCenter3 as $productosCenter3) {
-                                                if ($cont < 4) {
-                                                    $imagenes->set("cod", $productosCenter3['cod']);
-                                                    $imgProCenter3 = $imagenes->view();
-                                                    ?>
-                                                    <div class="item col-lg-3 col-md-4 col-sm-4 col-xs-6 col-phone-12">
-                                                        <div class="item-inner">
-                                                            <div class="prd">
-                                                                <div class="item-img clearfix">
-                                                                    <div class="ico-label">
-                                                                        <?php
-                                                                        if ($productosCenter3['precioDescuento'] > 0) {
-                                                                            ?>
-                                                                            <span class="ico-product ico-sale">Promo</span>
-                                                                            <?php
-
-                                                                        }
-                                                                        ?>
-                                                                    </div>
-                                                                    <a class="product-image have-additional"
-                                                                       href="<?php echo URL . '/producto/' . $funciones->normalizar_link($productosCenter3['titulo']) . "/" . $productosCenter3['id'] ?>">
-                                        <span class="img-main"
-                                              style="height:200px;background:url(<?= URL . '/' . $imgProCenter3['ruta'] ?>)no-repeat center center/contain;">
-                                        </span>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="item-info">
-                                                                    <div class="info-inner">
-                                                                        <div class="item-title">
-                                                                            <a
-                                                                                    href="<?php echo URL . '/producto/' . $funciones->normalizar_link($productosCenter3['titulo']) . "/" . $productosCenter3['id'] ?>">
-                                                                                <?= ucfirst($productosCenter3['titulo']) ?> </a>
-                                                                        </div>
-                                                                        <div class="item-price">
-                                                                            <div class="price-box">
-                                            <span class="regular-price">
-                                                <span class="price">
-                                                    <?php
-                                                    if ($productosCenter3['precioDescuento'] > 0) {
-                                                        ?>
-                                                        <span class="precio1">$ <?= $productosCenter3['precioDescuento']; ?></span>
-                                                        <span class="precio2">$ <?= $productosCenter3['precio']; ?></span>
-                                                        <?php
-
-                                                    } else {
-                                                        ?>
-                                                        <span class="precio1">$ <?= $productosCenter3['precio']; ?></span>
-                                                        <?php
-
-                                                    }
-                                                    ?>
-                                                </span>
-                                            </span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <?php
-                                                    $cont++;
-                                                    if (($key = array_search($productosCenter3, $productDataCenter3)) !== false) {
-                                                        unset($productDataCenter3[$key]);
-                                                    }
-                                                }
-                                            }
-                                            ?>
-                                        </div>
-
-                                        <div class="taps-slider">
-                                            <?php
-                                            $cont = 0;
-                                            foreach ($productDataCenter3 as $productosCenter3) {
-                                                if ($cont < 4) {
-                                                    $imagenes->set("cod", $productosCenter3['cod']);
-                                                    $imgProCenter3 = $imagenes->view();
-                                                    ?>
-                                                    <div class="item col-lg-3 col-md-4 col-sm-4 col-xs-6 col-phone-12">
-                                                        <div class="item-inner">
-                                                            <div class="prd">
-                                                                <div class="item-img clearfix">
-                                                                    <div class="ico-label">
-                                                                        <?php
-                                                                        if ($productosCenter3['precioDescuento'] > 0) {
-                                                                            ?>
-                                                                            <span class="ico-product ico-sale">Promo</span>
-                                                                            <?php
-
-                                                                        }
-                                                                        ?>
-                                                                    </div>
-                                                                    <a class="product-image have-additional"
-                                                                       href="<?php echo URL . '/producto/' . $funciones->normalizar_link($productosCenter3['titulo']) . "/" . $productosCenter3['id'] ?>">
-                    <span class="img-main"
-                          style="height:200px;background:url(<?= URL . '/' . $imgProCenter3['ruta'] ?>)no-repeat center center/contain;">
-                    </span>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="item-info">
-                                                                    <div class="info-inner">
-                                                                        <div class="item-title">
-                                                                            <a
-                                                                                    href="<?php echo URL . '/producto/' . $funciones->normalizar_link($productosCenter3['titulo']) . "/" . $productosCenter3['id'] ?>">
-                                                                                <?= ucfirst($productosCenter3['titulo']) ?> </a>
-                                                                        </div>
-                                                                        <div class="item-price">
-                                                                            <div class="price-box">
-                        <span class="regular-price">
-                            <span class="price">
-                                <?php
-                                if ($productosCenter3['precioDescuento'] > 0) {
-                                    ?>
-                                    <span class="precio1">$ <?= $productosCenter3['precioDescuento']; ?></span>
-                                    <span class="precio2">$ <?= $productosCenter3['precio']; ?></span>
-                                    <?php
-
-                                } else {
-                                    ?>
-                                    <span class="precio1">$ <?= $productosCenter3['precio']; ?></span>
-                                    <?php
-                                }
-                                ?>
-                            </span>
-                        </span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <?php
-                                                    $cont++;
-                                                }
-                                            }
-                                            ?>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="tab-content visible-md">
-                                <div class="content-loading"></div>
-                                <div role="tabpanel" class="tab-pane active" id="chair">
-                                    <div class="taps-slider1 products-grid row style_grid owl-carousel owl-theme owl-loaded">
-                                        <div class="taps-slider">
-                                            <?php
-                                            $cont = 0;
-                                            foreach ($productDataCenter3 as $productosCenter3) {
-                                                if ($cont < 3) {
-                                                    $imagenes->set("cod", $productosCenter3['cod']);
-                                                    $imgProCenter3 = $imagenes->view();
-                                                    ?>
-                                                    <div class="item col-lg-3 col-md-4 col-sm-4 col-xs-6 col-phone-12">
-                                                        <div class="item-inner">
-                                                            <div class="prd">
-                                                                <div class="item-img clearfix">
-                                                                    <div class="ico-label">
-                                                                        <?php
-                                                                        if ($productosCenter3['precioDescuento'] > 0) {
-                                                                            ?>
-                                                                            <span class="ico-product ico-sale">Promo</span>
-                                                                            <?php
-
-                                                                        }
-                                                                        ?>
-                                                                    </div>
-                                                                    <a class="product-image have-additional"
-                                                                       href="<?php echo URL . '/producto/' . $funciones->normalizar_link($productosCenter3['titulo']) . "/" . $productosCenter3['id'] ?>">
-                                        <span class="img-main"
-                                              style="height:200px;background:url(<?= URL . '/' . $imgProCenter3['ruta'] ?>)no-repeat center center/contain;">
-                                        </span>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="item-info">
-                                                                    <div class="info-inner">
-                                                                        <div class="item-title">
-                                                                            <a
-                                                                                    href="<?php echo URL . '/producto/' . $funciones->normalizar_link($productosCenter3['titulo']) . "/" . $productosCenter3['id'] ?>">
-                                                                                <?= ucfirst($productosCenter3['titulo']) ?> </a>
-                                                                        </div>
-                                                                        <div class="item-price">
-                                                                            <div class="price-box">
-                                            <span class="regular-price">
-                                                <span class="price">
-                                                    <?php
-                                                    if ($productosCenter3['precioDescuento'] > 0) {
-                                                        ?>
-                                                        <span class="precio1">$ <?= $productosCenter3['precioDescuento']; ?></span>
-                                                        <span class="precio2">$ <?= $productosCenter3['precio']; ?></span>
-                                                        <?php
-
-                                                    } else {
-                                                        ?>
-                                                        <span class="precio1">$ <?= $productosCenter3['precio']; ?></span>
-                                                        <?php
-
-                                                    }
-                                                    ?>
-                                                </span>
-                                            </span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <?php
-                                                    $cont++;
-                                                    if (($key = array_search($productosCenter3, $productDataCenter3)) !== false) {
-                                                        unset($productDataCenter3[$key]);
-                                                    }
-                                                }
-                                            }
-                                            ?>
-                                        </div>
-
-                                        <div class="taps-slider">
-                                            <?php
-                                            $cont = 0;
-                                            foreach ($productDataCenter3 as $productosCenter3) {
-                                                if ($cont < 3) {
-                                                    $imagenes->set("cod", $productosCenter3['cod']);
-                                                    $imgProCenter3 = $imagenes->view();
-                                                    ?>
-                                                    <div class="item col-lg-3 col-md-4 col-sm-4 col-xs-6 col-phone-12">
-                                                        <div class="item-inner">
-                                                            <div class="prd">
-                                                                <div class="item-img clearfix">
-                                                                    <div class="ico-label">
-                                                                        <?php
-                                                                        if ($productosCenter3['precioDescuento'] > 0) {
-                                                                            ?>
-                                                                            <span class="ico-product ico-sale">Promo</span>
-                                                                            <?php
-
-                                                                        }
-                                                                        ?>
-                                                                    </div>
-                                                                    <a class="product-image have-additional"
-                                                                       href="<?php echo URL . '/producto/' . $funciones->normalizar_link($productosCenter3['titulo']) . "/" . $productosCenter3['id'] ?>">
-                    <span class="img-main"
-                          style="height:200px;background:url(<?= URL . '/' . $imgProCenter3['ruta'] ?>)no-repeat center center/contain;">
-                    </span>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="item-info">
-                                                                    <div class="info-inner">
-                                                                        <div class="item-title">
-                                                                            <a
-                                                                                    href="<?php echo URL . '/producto/' . $funciones->normalizar_link($productosCenter3['titulo']) . "/" . $productosCenter3['id'] ?>">
-                                                                                <?= ucfirst($productosCenter3['titulo']) ?> </a>
-                                                                        </div>
-                                                                        <div class="item-price">
-                                                                            <div class="price-box">
-                        <span class="regular-price">
-                            <span class="price">
-                                <?php
-                                if ($productosCenter3['precioDescuento'] > 0) {
-                                    ?>
-                                    <span class="precio1">$ <?= $productosCenter3['precioDescuento']; ?></span>
-                                    <span class="precio2">$ <?= $productosCenter3['precio']; ?></span>
-                                    <?php
-
-                                } else {
-                                    ?>
-                                    <span class="precio1">$ <?= $productosCenter3['precio']; ?></span>
-                                    <?php
-                                }
-                                ?>
-                            </span>
-                        </span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <?php
-                                                    $cont++;
-                                                }
-                                            }
-                                            ?>
+                                        <div class="col-lg-4 col-md-6 col-sm-4">
+                                            <div class="features-include-list">
+                                                <h6><img src="images/icons/7.png" alt="">Luxurious Fittings</h6>
+                                                <p>Lorem is a dummy text do eiud tempor dolor sit amet dum</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -915,66 +396,92 @@ $productDataRel = $productos->listWithOps('', '', '');
                     </div>
                 </div>
             </div>
-            <div class="row bottom visible-md visible-lg">
+            <!-- FEATURES AREA END -->
 
-                <div class="col-md-12">
-                    <!-- Banner 570x110 -->
-                    <?php
-                    if (count($banDataPieMedio) >= 2) {
-                        $banRandPieMedio5 = $banDataPieMedio[array_rand($banDataPieMedio)];
-                        $imagenes->set("cod", $banRandPieMedio5['cod']);
-                        $imgRandPieMedio5 = $imagenes->view();
-                        $banners->set("id", $banRandPieMedio5['id']);
-                        $value = $banRandPieMedio5['vistas'] + 1;
-                        $banners->set("vistas", $value);
-                        $banners->increaseViews();
-                        ?>
-                        <div class="sns_banner3">
-                            <div class="row">
-                                <div class="col-md-6 col-sm-6">
-                                    <div class="banner-content banner5">
-                                        <a href="<?= $banRandPieMedio5['link'] ?>">
-                                            <img src="<?= URL . '/' . $imgRandPieMedio5['ruta'] ?>"
-                                                 alt="<?= $banRandPieMedio5['nombre'] ?>">
-                                        </a>
-                                    </div>
-                                </div>
-                                <?php
-                                if (($key = array_search($banRandPieMedio5, $banDataPieMedio)) !== false) {
-                                    unset($banDataPieMedio[$key]);
-                                }
-                                $banRandPieMedio6 = $banDataPieMedio[array_rand($banDataPieMedio)];
-                                $imagenes->set("cod", $banRandPieMedio6['cod']);
-                                $imgRandPieMedio6 = $imagenes->view();
-                                $banners->set("id", $banRandPieMedio6['id']);
-                                $value = $banRandPieMedio6['vistas'] + 1;
-                                $banners->set("vistas", $value);
-                                $banners->increaseViews();
-                                ?>
-                                <div class="col-md-6 col-sm-6">
-                                    <div class="banner-content banner5 style-banner2">
-                                        <a href="<?= $banRandPieMedio6['link'] ?>">
-                                            <img src="<?= URL . '/' . $imgRandPieMedio6['ruta'] ?>"
-                                                 alt="<?= $banRandPieMedio6['nombre'] ?>">
-                                        </a>
-                                    </div>
-                                </div>
+            <!-- BLOG AREA START -->
+            <div class="blog-area pb-60">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="section-title-2 text-center">
+                                <h2>FROM BLOG</h2>
+                                <p>Sheltek is the best theme for  elit, sed do eiusmod tempor dolor sit amet, conse ctetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et lorna aliquatd minim veniam, quis nostrud</p>
                             </div>
                         </div>
-                        <?php
-                        if (($key = array_search($banRandPieMedio6, $banDataPieMedio)) !== false) {
-                            unset($banDataPieMedio[$key]);
-                        }
-                    }
-                    ?>
+                    </div>
+                    <div class="row">
+                        <div class="blog-carousel">
+                            <!-- blog-item -->
+                            <div class="col-md-12">
+                                <article class="blog-item bg-gray">
+                                    <div class="blog-image">
+                                        <a href="single-blog.html"><img src="images/blog/1.jpg" alt=""></a>
+                                    </div>
+                                    <div class="blog-info">
+                                        <div class="post-title-time">
+                                            <h5><a href="single-blog.html">Maridland de Villa</a></h5>
+                                            <p>July 30, 2016 / 10 am</p>
+                                        </div>
+                                        <p>Lorem must explain to you how all this mistaolt denouncing pleasure and praising pain wasnad I will give you a complete pain was praising</p>
+                                        <a class="read-more" href="single-blog.html">Read more</a>
+                                    </div>
+                                </article>
+                            </div>
+                            <!-- blog-item -->
+                            <div class="col-md-12">
+                                <article class="blog-item bg-gray">
+                                    <div class="blog-image">
+                                        <a href="single-blog.html"><img src="images/blog/2.jpg" alt=""></a>
+                                    </div>
+                                    <div class="blog-info">
+                                        <div class="post-title-time">
+                                            <h5><a href="single-blog.html">Latest Design House</a></h5>
+                                            <p>July 30, 2016 / 10 am</p>
+                                        </div>
+                                        <p>Lorem must explain to you how all this mistaolt denouncing pleasure and praising pain wasnad I will give you a complete pain was praising</p>
+                                        <a class="read-more" href="single-blog.html">Read more</a>
+                                    </div>
+                                </article>
+                            </div>
+                            <!-- blog-item -->
+                            <div class="col-md-12">
+                                <article class="blog-item bg-gray">
+                                    <div class="blog-image">
+                                        <a href="single-blog.html"><img src="images/blog/3.jpg" alt=""></a>
+                                    </div>
+                                    <div class="blog-info">
+                                        <div class="post-title-time">
+                                            <h5><a href="single-blog.html">Duplex Villa House</a></h5>
+                                            <p>July 30, 2016 / 10 am</p>
+                                        </div>
+                                        <p>Lorem must explain to you how all this mistaolt denouncing pleasure and praising pain wasnad I will give you a complete pain was praising</p>
+                                        <a class="read-more" href="single-blog.html">Read more</a>
+                                    </div>
+                                </article>
+                            </div>
+                            <!-- blog-item -->
+                            <div class="col-md-12">
+                                <article class="blog-item bg-gray">
+                                    <div class="blog-image">
+                                        <a href="single-blog.html"><img src="images/blog/2.jpg" alt=""></a>
+                                    </div>
+                                    <div class="blog-info">
+                                        <div class="post-title-time">
+                                            <h5><a href="single-blog.html">Latest Design House</a></h5>
+                                            <p>July 30, 2016 / 10 am</p>
+                                        </div>
+                                        <p>Lorem must explain to you how all this mistaolt denouncing pleasure and praising pain wasnad I will give you a complete pain was praising</p>
+                                        <a class="read-more" href="single-blog.html">Read more</a>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- AND CONTENT -->
+            <!-- BLOG AREA END -->
 
-    </div>
-    </body>
-<?php
-$template->themeEnd();
-?>
+</section>
+
+
+<?php $template->themeEnd(); ?>
