@@ -44,15 +44,27 @@
   30. boxed-layout
 
 
------------------------------------------------------------------------------------*/
+  -----------------------------------------------------------------------------------*/
 /*----------------------------------------
   5. Google Fonts
-----------------------------------------*/
+  ----------------------------------------*/
 
-@import url('https://fonts.googleapis.com/css?family=Raleway:400,600,700,800');
+  @import url('https://fonts.googleapis.com/css?family=Raleway:400,600,700,800');
 /*----------------------------------------
   6. Custom-content all
-----------------------------------------*/
+  ----------------------------------------*/
+
+.contimg{
+    height: 240px;
+}
+
+.contimg2{
+    height: 195px;
+}
+
+.contimg3{
+    height: 81px;
+}
 
 .boxed-layout .wrapper {
     box-shadow: -3px 0 50px -2px rgba(0, 0, 0, 0.14);
@@ -67,12 +79,12 @@
 }
 /* ================================
   7. Home-1 
-================================= */
+  ================================= */
 /* -----------------------------------
   8. call-to-action-area
------------------------------------ */
+  ----------------------------------- */
 
-.call-to-bg {
+  .call-to-bg {
     position: relative;
 }
 .call-to-bg:before,
@@ -99,8 +111,8 @@
 }
 /* -----------------------------------
   9. booking-area
------------------------------------ */
-.booking-area .section-title {
+  ----------------------------------- */
+  .booking-area .section-title {
     margin-top: 15px;
 }
 .booking-conternt {
@@ -128,9 +140,9 @@
 }
 /* -----------------------------------
  10. Find home area
------------------------------------ */
+ ----------------------------------- */
 
-.find-home-area .section-title {
+ .find-home-area .section-title {
     margin-top: 28px;
 }
 .find-homes {
@@ -228,9 +240,9 @@
 }
 /* -----------------------------------
   11. Services area
------------------------------------ */
+  ----------------------------------- */
 
-.service-item {
+  .service-item {
     margin-bottom: 60px;
     -webkit-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
@@ -247,9 +259,9 @@
 }
 /* -----------------------------------
   12.  Featured property area
------------------------------------ */
+  ----------------------------------- */
 
-.flat-item {
+  .flat-item {
     margin-bottom: 20px;
     overflow: hidden;
 }
@@ -398,9 +410,9 @@
 }
 /* -----------------------------------
   13. Features area
------------------------------------ */
+  ----------------------------------- */
 
-.features-area {
+  .features-area {
     background: #f5f5f5 url("images/others/features.jpg") no-repeat scroll 0 0;
 }
 .features-info {
@@ -429,9 +441,9 @@
 }
 /* -----------------------------------
   14. Agents area
------------------------------------ */
+  ----------------------------------- */
 
-.single-agent {
+  .single-agent {
     border-bottom: 4px solid #1f223e;
     margin-bottom: 60px;
     overflow: hidden;
@@ -562,9 +574,9 @@
 }
 /* -----------------------------------
   15. Testimonial area
------------------------------------ */
+  ----------------------------------- */
 
-.testimonial {
+  .testimonial {
     border-bottom: 4px solid #f5f5f5;
 }
 .testimonial-brief {
@@ -612,9 +624,9 @@
 }
 /* -----------------------------------
   16. Blog area
------------------------------------ */
+  ----------------------------------- */
 
-.blog-item {
+  .blog-item {
     margin-bottom: 60px;
 }
 .blog-image {
@@ -662,9 +674,9 @@
 }
 /* -----------------------------------
   17. Brand area
------------------------------------ */
+  ----------------------------------- */
 
-.brand-item {
+  .brand-item {
     border: 1px solid #f5f5f5;
     height: 100px;
     line-height: 100px;
@@ -682,9 +694,9 @@
 }
 /* -----------------------------------
   18. Subscribe area
------------------------------------ */
+  ----------------------------------- */
 
-.subscribe {
+  .subscribe {
     margin: 15px auto 0;
     position: relative;
     width: calc(100% - 90px);
@@ -723,12 +735,12 @@
 }
 /* ===============================
   19. Home page 2
-=============================== */
+  =============================== */
 /* -----------------------------------
   20. About-sheltek-area 
------------------------------------ */
+  ----------------------------------- */
 
-.author-quote > p {
+  .author-quote > p {
     padding-left: 30px;
     position: relative;
 }
@@ -751,9 +763,9 @@
 }
 /* -----------------------------------
   21. Breadcrumbs area
------------------------------------ */
+  ----------------------------------- */
 
-.breadcrumbs-area {
+  .breadcrumbs-area {
     position: relative;
 }
 .bread-bg-1 {
@@ -791,9 +803,9 @@
 }
 /* -----------------------------------
   22. Counter-item (Call to action)
------------------------------------ */
+  ----------------------------------- */
 
-.counter-content {
+  .counter-content {
     float: left;
     width: 80%;
 }
@@ -845,9 +857,9 @@
 }
 /* -----------------------------------
   23. Pagination area
------------------------------------ */
+  ----------------------------------- */
 
-.pagination-list > li {
+  .pagination-list > li {
     display: inline-block;
 }
 .pagination-list > li + li {
@@ -874,9 +886,9 @@
 }
 /* -----------------------------------
   24. Features area -2
------------------------------------ */
+  ----------------------------------- */
 
-.features-includes-2 .features-include-list {
+  .features-includes-2 .features-include-list {
     margin-bottom: 60px;
     margin-top: 0;
 }
@@ -886,9 +898,9 @@
 }
 /* -----------------------------------
   25. Properties-details-area
------------------------------------ */
+  ----------------------------------- */
 
-.pro-details-big-image {
+  .pro-details-big-image {
     margin-bottom: 10px;
 }
 .pro-details-carousel {
@@ -1002,10 +1014,10 @@
 }
 /* -----------------------------------
   26. widget
------------------------------------ */
-/*widget*/
+  ----------------------------------- */
+  /*widget*/
 
-.widget {
+  .widget {
     padding-left: 30px;
 }
 .col-md-pull-8 .widget {
@@ -1219,9 +1231,9 @@
 }
 /* -----------------------------------
   27. Agents details area
------------------------------------ */
+  ----------------------------------- */
 
-.agents-details-about {
+  .agents-details-about {
     border-bottom: 4px solid #f5f5f5;
 }
 .agent-details-brief p,
@@ -1255,8 +1267,8 @@
 }
 /* -----------------------------------
   28. blog-details
------------------------------------ */
-.blog-details-image {
+  ----------------------------------- */
+  .blog-details-image {
     margin-bottom: 25px;
 }
 .blog-details-title-time {
@@ -1400,9 +1412,9 @@
 /*#bodyContent > p {
   margin-bottom: 0;
   font-weight: 600;
-}*/
+  }*/
 
-.error-area {
+  .error-area {
     background: rgba(0, 0, 0, 0.9) url("images/others/error.jpg") no-repeat scroll right top;
     position: relative;
 }
@@ -1487,9 +1499,9 @@
 }
 /* -------------------------------------
   29. Bankground youtube video
-------------------------------------- */
+  ------------------------------------- */
 
-.youtube-bg {
+  .youtube-bg {
     z-index: 9;
 }
 .mb_YTPBar {
@@ -1506,9 +1518,9 @@
 }
 /* ========================
   30. boxed-layout
-========================= */
+  ========================= */
 
-.boxed-layout .call-to-bg {
+  .boxed-layout .call-to-bg {
     overflow: hidden;
 }
 .boxed-layout .call-to-bg:before {

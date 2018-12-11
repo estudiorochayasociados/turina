@@ -1,7 +1,7 @@
 <?php
 $productos = new Clases\Productos();
 $imagenes  = new Clases\Imagenes();
-$filter    = array();
+//$filter    = array();
 $data      = $productos->list("");
 ?>
 <div class="mt-20">

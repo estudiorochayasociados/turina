@@ -23,6 +23,10 @@
 <link href="<?=URL;?>/assets/css/color/color-core.css" data-style="styles" rel="stylesheet">
 <!-- User style -->
 <link rel="stylesheet" href="<?=URL;?>/assets/css/custom.css">
+<!-- User Estilos -->
+<link rel="stylesheet" href="<?=URL;?>/assets/css/estilos.css">
+<!-- Font-awesome CSS -->
+<link rel="stylesheet" href="<?php echo URL; ?>/assets/css/all.min.css">
 
 
 <!-- Modernizr JS -->

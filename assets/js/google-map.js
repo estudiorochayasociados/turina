@@ -15,7 +15,7 @@
             var marker = new google.maps.Marker({
                 position: map.getCenter(),
                 animation:google.maps.Animation.BOUNCE,
-                icon: 'images/icons/map-marker.png',
+                icon: 'assets/images/icons/map-marker.png',
                 map: map
             });
 

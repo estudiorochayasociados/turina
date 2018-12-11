@@ -1,5 +1,5 @@
 <?php
-$campos = ["titulo", "precio", "precio_mayorista", "precio_descuento", "stock", "desarrollo", "categoria", "subcategoria", "keywords", "description", "url", "cod_producto", "meli", "imagenes", "variable1", "variable2", "variable3", "variable4", "no_variable5", "no_variable6", "no_variable7", "no_variable8"];
+$campos = ["titulo", "precio", "precio_mayorista", "precio_descuento", "stock", "desarrollo", "categoria", "subcategoria", "keywords", "description", "url", "cod_producto", "meli", "imagenes", "var1", "var2", "var3", "var4", "no_var5", "no_var6", "no_var7", "no_var8"];
 $productos = new Clases\Productos();
 $imagenes  = new Clases\Imagenes();
 $zebra     = new Clases\Zebra_Image();
@@ -15,7 +15,8 @@ if (isset($_POST["agregar"])) {
     $productos->set("titulo", $funciones->antihack_mysqli(isset($_POST["titulo"]) ? $_POST["titulo"] : ''));
     $productos->set("cod_producto", $funciones->antihack_mysqli(isset($_POST["cod_producto"]) ? $_POST["cod_producto"] : ''));
     $productos->set("precio", $funciones->antihack_mysqli(isset($_POST["precio"]) ? $_POST["precio"] : ''));
-    $productos->set("precioDescuento", $funciones->antihack_mysqli(isset($_POST["precioDescuento"]) ? $_POST["precioDescuento"] : ''));
+    $productos->set("precio_descuento", $funciones->antihack_mysqli(isset($_POST["precio_descuento"]) ? $_POST["precio_descuento"] : ''));
+    $productos->set("precio_mayorista", $funciones->antihack_mysqli(isset($_POST["precio_mayorista"]) ? $_POST["precio_mayorista"] : ''));
     $productos->set("stock", $funciones->antihack_mysqli(isset($_POST["stock"]) ? $_POST["stock"] : ''));
     $productos->set("desarrollo", $funciones->antihack_mysqli(isset($_POST["desarrollo"]) ? $_POST["desarrollo"] : ''));
     $productos->set("categoria", $funciones->antihack_mysqli(isset($_POST["categoria"]) ? $_POST["categoria"] : ''));
@@ -24,7 +25,14 @@ if (isset($_POST["agregar"])) {
     $productos->set("description", $funciones->antihack_mysqli(isset($_POST["description"]) ? $_POST["description"] : ''));
     $productos->set("fecha", $funciones->antihack_mysqli(isset($_POST["fecha"]) ? $_POST["fecha"] : date("Y-m-d")));
     $productos->set("meli", $funciones->antihack_mysqli(isset($_POST["meli"]) ? $_POST["meli"] : ''));
-    $productos->set("url", $funciones->antihack_mysqli(isset($_POST["url"]) ? $_POST["url"] : ''));
+    $productos->set("var1", $funciones->antihack_mysqli(isset($_POST["var1"]) ? $_POST["var1"] : ''));
+    $productos->set("var2", $funciones->antihack_mysqli(isset($_POST["var2"]) ? $_POST["var2"] : ''));
+    $productos->set("var3", $funciones->antihack_mysqli(isset($_POST["var3"]) ? $_POST["var3"] : ''));
+    $productos->set("var4", $funciones->antihack_mysqli(isset($_POST["var4"]) ? $_POST["var4"] : ''));
+    $productos->set("var5", $funciones->antihack_mysqli(isset($_POST["var5"]) ? $_POST["var5"] : ''));
+    $productos->set("var6", $funciones->antihack_mysqli(isset($_POST["var6"]) ? $_POST["var6"] : ''));
+    $productos->set("var7", $funciones->antihack_mysqli(isset($_POST["var7"]) ? $_POST["var7"] : ''));
+    $productos->set("var8", $funciones->antihack_mysqli(isset($_POST["var8"]) ? $_POST["var8"] : ''));
 
     foreach ($_FILES['files']['name'] as $f => $name) {
         $imgInicio = $_FILES["files"]["tmp_name"][$f];
@@ -106,38 +114,38 @@ if (isset($_POST["agregar"])) {
             <input type="text" name="url" id="url">
         </label>
         <div class="clearfix"></div>
-        <label class="col-md-3 <?php if (!in_array('variable1', $campos)) {echo 'd-none';}?>" >
-            Variable1:<br/>
-            <input type="text" name="variable1" id="variable1">
+        <label class="col-md-3 <?php if (!in_array('var1', $campos)) {echo 'd-none';}?>" >
+            Var1:<br/>
+            <input type="text" name="var1" id="var1">
         </label>
-        <label class="col-md-3 <?php if (!in_array('variable2', $campos)) {echo 'd-none';}?>" >
-            Variable2:<br/>
-            <input type="text" name="variable2" id="variable2">
+        <label class="col-md-3 <?php if (!in_array('var2', $campos)) {echo 'd-none';}?>" >
+            Var2:<br/>
+            <input type="text" name="var2" id="var2">
         </label>
-        <label class="col-md-3 <?php if (!in_array('variable3', $campos)) {echo 'd-none';}?>" >
-            Variable3:<br/>
-            <input type="text" name="variable3" id="variable3">
+        <label class="col-md-3 <?php if (!in_array('var3', $campos)) {echo 'd-none';}?>" >
+            Var3:<br/>
+            <input type="text" name="var3" id="var3">
         </label>
-        <label class="col-md-3 <?php if (!in_array('variable4', $campos)) {echo 'd-none';}?>" >
-            Variable4:<br/>
-            <input type="text" name="variable4" id="variable4">
+        <label class="col-md-3 <?php if (!in_array('var4', $campos)) {echo 'd-none';}?>" >
+            Var4:<br/>
+            <input type="text" name="var4" id="var4">
         </label>
         <div class="clearfix"></div>
-        <label class="col-md-3 <?php if (!in_array('variable5', $campos)) {echo 'd-none';}?>" >
-            Variable5:<br/>
-            <input type="text" name="variable5" id="variable5">
+        <label class="col-md-3 <?php if (!in_array('var5', $campos)) {echo 'd-none';}?>" >
+            Var5:<br/>
+            <input type="text" name="var5" id="var5">
         </label>
-        <label class="col-md-3 <?php if (!in_array('variable6', $campos)) {echo 'd-none';}?>" >
-            Variable6:<br/>
-            <input type="text" name="variable6" id="variable6">
+        <label class="col-md-3 <?php if (!in_array('var6', $campos)) {echo 'd-none';}?>" >
+            Var6:<br/>
+            <input type="text" name="var6" id="var6">
         </label>
-        <label class="col-md-3 <?php if (!in_array('variable7', $campos)) {echo 'd-none';}?>" >
-            Variable7:<br/>
-            <input type="text" name="variable7" id="variable7">
+        <label class="col-md-3 <?php if (!in_array('var7', $campos)) {echo 'd-none';}?>" >
+            Var7:<br/>
+            <input type="text" name="var7" id="var7">
         </label>
-        <label class="col-md-3 <?php if (!in_array('variable8', $campos)) {echo 'd-none';}?>" >
-            Variable8:<br/>
-            <input type="text" name="variable8" id="variable8">
+        <label class="col-md-3 <?php if (!in_array('var8', $campos)) {echo 'd-none';}?>" >
+            Var8:<br/>
+            <input type="text" name="var8" id="var8">
         </label>
         <div class="clearfix"></div>
         <label class="col-md-12 <?php if (!in_array('desarrollo', $campos)) {echo 'd-none';}?>" >

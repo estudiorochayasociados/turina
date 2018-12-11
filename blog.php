@@ -2,108 +2,136 @@
 require_once "Config/Autoload.php";
 Config\Autoload::runSitio();
 $template = new Clases\TemplateSite();
-$funciones= new Clases\PublicFunction();
-
-//Clases
-$imagenes = new Clases\Imagenes();
-$novedades = new Clases\Novedades();
-$banners = new Clases\Banner();
-//Productos
-$id       = isset($_GET["id"]) ? $_GET["id"] : '';
-$novedades->set("id",$id);
-$novedadData = $novedades->view();
-$imagenes->set("cod",$novedadData['cod']);
-$imagenData = $imagenes->view();
-$novedadesData = $novedades->list('');
-$fecha = explode("-", $novedadData['fecha']);
-$template->set("title", "Pinturería Ariel | ".ucfirst($novedadData['titulo']));
-$template->set("description", $novedadData['description']);
-$template->set("keywords", $novedadData['keywords']);
-$template->set("favicon", LOGO);
+$template->set("title",TITULO . "Blog | Turina Inmobiliaria");
+$template->set("imagen", LOGO);
+$template->set("keywords", "");
+$template->set("description","");
 $template->themeInit();
-//
+//Clases
+$novedades = new Clases\Novedades();
+$novedadesArray = $novedades->list("");
+$imagenes = new Clases\Imagenes();
+$categorias = new Clases\Categorias();
 ?>
-    <body id="bd" class="cms-index-index2 header-style2 prd-detail blog-pagev1 detail cms-simen-home-page-v2 default cmspage">
-<div id="sns_wrapper">
-    <?php $template->themeNav(); ?>
-    <!-- BREADCRUMBS -->
-    <div id="sns_breadcrumbs" class="wrap">
+
+<!-- BREADCRUMBS AREA START -->
+<div class="breadcrumbs-area bg-opacity-black-70" style="background: url('<?= URL?>/assets/images/bg/5.jpg'); background-size: cover; background-attachment:fixed";>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="breadcrumbs">
+          <h2 class="breadcrumbs-title">Blog</h2>
+          <ul class="breadcrumbs-list">
+            <li><a href="<?= URL; ?>/index">Inicio</a></li>
+            <li>Blog</li>
+        </ul>
+    </div>
+</div>
+</div>
+</div>
+</div>
+<!-- BREADCRUMBS AREA END -->
+
+<!-- Start page content -->
+<div id="page-content" class="page-wrapper">
+
+    <!-- BLOG AREA START -->
+    <div class="blog-area pt-115 pb-60">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <div id="sns_titlepage"></div>
-                    <div id="sns_pathway" class="clearfix">
-                        <div class="pathway-inner">
-                            <span class="icon-pointer "></span>
-                            <ul class="breadcrumbs">
-                                <li class="home">
-                                    <a href="<?=URL . '/blogs' ?>">
-                                        <i class="fa fa-home"></i>
-                                        <span>Blogs</span>
-                                    </a>
-                                </li>
-                                <li class="category3 last">
-                                    <span>Blog</span>
-                                </li>
-                                <li class="category3 last">
-                                    <span><?= ucfirst($novedadData['titulo']); ?></span>
-                                </li>
-                            </ul>
+                <div class="col-md-8">
+                    <div class="row flex_wrap">
+                        <?php foreach ($novedadesArray as $key => $valor): ?>
+                            <?php $fecha = explode('-',$valor['fecha']); ?>
+                            <?php $filter = array("cod = '$valor[cod]'"); ?>
+                            <?php $imagenesArray = $imagenes->list($filter); ?>
+                            <!-- blog-item -->
+                            <div class="col-sm-6 col-xs-12">
+                                <article class="blog-item bg-gray">
+                                    <div class="blog-image">
+                                        <a href="<?=URL?>/novedad/<?=$valor['titulo']?>/<?=$valor['cod']?>">
+                                            <div class="contimg2">
+                                                <img src="<?=$imagenesArray[0]['ruta']?>" height="100%" alt="<?=$valor['titulo']?>" titulo="<?=$valor['titulo']?>">
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="blog-info">
+                                        <div class="post-title-time">
+                                            <h5><a href="<?=URL?>/novedad/<?=$valor['titulo']?>/<?=$valor['cod']?>"><?=$valor['titulo']?></a></h5>
+                                            <p><?=$fecha[2]?>/<?=$fecha[1]?>/<?=$fecha[0]?></p>
+                                        </div>
+                                        <?=substr($valor['desarrollo'],0,180)?>..
+                                        <a class="read-more" href="<?=URL?>/novedad/<?=$valor['titulo']?>/<?=$valor['cod']?>">Leer más</a>
+                                    </div>
+                                </article>
+                            </div>
+                        <?php endforeach; ?>
+                        <!-- pagination-area -->
+                        <div class="col-xs-12">
+                            <div class="pagination-area mb-60">
+                                <ul class="pagination-list text-center">
+                                    <li><a href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-md-4">
+                    <!-- widget-categories -->
+                    <aside class="widget widget-categories mb-50">
+                        <h5>Categorías</h5>
+                        <ul class="widget-categories-list">
+                            <?php $filter = array("area = 'novedades'"); ?>
+                            <?php $categoriasArray = $categorias->list($filter); ?>
+                            <?php foreach ($categoriasArray as $key => $valor): ?>
+                                <li>
+                                    <a href="<?=URL?>/novedad?categoria=<?=$valor['titulo']?>"><?=$valor['titulo']?></a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </aside>
+                    <!-- widget-recent-post -->
+                    <aside class="widget widget-recent-post mb-50">
+                        <h5>Recientes</h5>
+                        <div class="row">
+                            <?php foreach ($novedadesArray as $key => $valor): ?>
+                                <?php $fecha = explode('-',$valor['fecha']); ?>
+                                <?php $filter = array("cod = '$valor[cod]'"); ?>
+                                <?php $imagenesArray = $imagenes->list($filter); ?>
+                                <!-- blog-item -->
+                                <div class="col-md-12 col-sm-6 col-xs-12">
+                                    <article class="recent-post-item">
+                                        <div class="recent-post-image">
+                                            <a href="<?=URL?>/novedad/<?=$valor['titulo']?>/<?=$valor['cod']?>">
+                                                <div class="contimg3">
+                                                    <img src="<?=$imagenesArray[0]['ruta']?>" height="100%" alt="<?=$valor['titulo']?>" titulo="<?=$valor['titulo']?>">
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="recent-post-info">
+                                            <div class="recent-post-title-time">
+                                                <h5>
+                                                    <a href="<?=URL?>/novedad/<?=$valor['titulo']?>/<?=$valor['cod']?>"><?=$valor['titulo']?></a>
+                                                </h5>
+                                                <p><?=$fecha[2]?>/<?=$fecha[1]?>/<?=$fecha[0]?></p>
+                                            </div>
+                                            <?=substr($valor['desarrollo'],0,50)?>..
+                                        </div>
+                                    </article>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </aside>
                 </div>
             </div>
         </div>
     </div>
-    <!-- AND BREADCRUMBS -->
-<div id="sns_content" class="wrap">
-                <div class="container">
-                    <div class="row">
-                        <?php $template->themeSideBlog(); ?>
-                        <div id="sns_main" class="col-md-9 col-main">
-                            <div id="sns_mainmidle">
-                                <div class="blogs-page">
-                                    <div class="postWrapper v1">
-                                        <div class="post-title">
-                                            <a><?= ucfirst($novedadData['titulo']); ?></a>
-                                        </div>
-                                        <a class="post-img">
-                                            <img src="<?= URL. '/' . $imagenData['ruta']; ?>" alt="<?= $novedadData['titulo']; ?>">
-                                        </a>
-                                        <br>
-                                        <div class="date">
-                                            <span class="poster"><?php echo $fecha[2] . "/" . $fecha[1] . "/" . $fecha[0] ?></span>
-                                        </div>
-
-                                        <div class="post-content">
-                                            <p class="text1">
-                                                    <?= $novedadData['desarrollo']; ?>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mt-5" >
-                                <!-- AddToAny BEGIN -->
-                                <label >Compartir en:</label>
-                                <!-- AddToAny BEGIN -->
-                                <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-                                    <a class="a2a_button_facebook"></a>
-                                    <a class="a2a_button_twitter"></a>
-                                    <a class="a2a_button_google_plus"></a>
-                                    <a class="a2a_button_pinterest"></a>
-                                    <a class="a2a_button_whatsapp"></a>
-                                    <a class="a2a_button_facebook_messenger"></a>
-                                </div>
-                                <script async src="https://static.addtoany.com/menu/page.js"></script>
-                                <!-- AddToAny END -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- BLOG AREA END -->
 </div>
-    </body>
-<?php
-$template->themeEnd();
-?>
+<!-- End page content -->
+
+
+<?php $template->themeEnd(); ?>

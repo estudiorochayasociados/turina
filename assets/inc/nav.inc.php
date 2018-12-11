@@ -48,8 +48,8 @@
                         <nav id="primary-menu">
                             <ul class="main-menu text-center">
                                 <li><a href="<?=URL;?>/index">Inicio</a></li>
-                                <li><a href="<?=URL;?>/nosotros">Nosotros</a></li>
-                                <li><a href="<?=URL;?>/comprar-mi-lote">Comprar mi Lote</a></li>
+                                <li><a href="<?=URL;?>/c/nosotros">Nosotros</a></li>
+                                <li><a href="<?=URL;?>/lotes">Comprar mi Lote</a></li>
                                 <li><a href="<?=URL;?>/videos">Videos</a></li>
                                 <li><a href="<?=URL;?>/blog">Blog</a></li>
                                 <li><a href="<?=URL;?>/contacto">Contacto</a></li>
@@ -71,8 +71,8 @@
                     <nav id="dropdown">
                         <ul>
                             <li><a href="<?=URL;?>/index">Inicio</a></li>
-                            <li><a href="<?=URL;?>/nosotros">Nosotros</a></li>
-                            <li><a href="<?=URL;?>/comprar-mi-lote">Comprar mi Lote</a></li>
+                            <li><a href="<?=URL;?>/c/nosotros">Nosotros</a></li>
+                            <li><a href="<?=URL;?>/lotes">Comprar mi Lote</a></li>
                             <li><a href="<?=URL;?>/videos">Videos</a></li>
                             <li><a href="<?=URL;?>/blog">Blog</a></li>
                             <li><a href="<?=URL;?>/contacto">Contacto</a></li>

@@ -1,3 +1,7 @@
+    .flex_wrap{
+        display: flex;
+        flex-wrap: wrap;
+    }
     .precioS1 {
         font-size: 13px;
         color: #222;
