@@ -1,3 +1,6 @@
+<?php $novedadesFooter = new Clases\Novedades(); ?>
+<?php $novedadesFooterArray = $novedadesFooter->list("","",4); ?>
+<?php $imagenesFooter = new Clases\Imagenes(); ?>
 <!-- Start footer area -->
 <footer id="footer" class="footer-area bg-2 bg-opacity-black-90">
     <div class="footer-top pt-110 pb-80">
@@ -40,33 +43,19 @@
                         <div class="footer-widget middle">
                             <h6 class="footer-titel">RECIENTE</h6>
                             <ul class="footer-latest-news">
-                                <li>
-                                    <div class="latest-news-image">
-                                        <a href="single-blog.html"><img src="images/blog/1.jpg" alt=""></a>
-                                    </div>
-                                    <div class="latest-news-info">
-                                        <h6><a href="single-blog.html">Beautiful Home</a></h6>
-                                        <p>Lorem ipsum dolor sit amet, consectetur acinglit sed do eiusmod tempor inciidunt ut labore </p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="latest-news-image">
-                                        <a href="single-blog.html"><img src="images/blog/2.jpg" alt=""></a>
-                                    </div>
-                                    <div class="latest-news-info">
-                                        <h6><a href="single-blog.html">Beautiful Home</a></h6>
-                                        <p>Lorem ipsum dolor sit amet, consectetur acinglit sed do eiusmod tempor inciidunt ut labore </p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="latest-news-image">
-                                        <a href="single-blog.html"><img src="images/blog/3.jpg" alt=""></a>
-                                    </div>
-                                    <div class="latest-news-info">
-                                        <h6><a href="single-blog.html">Beautiful Home</a></h6>
-                                        <p>Lorem ipsum dolor sit amet, consectetur acinglit sed do eiusmod tempor inciidunt ut labore </p>
-                                    </div>
-                                </li>
+                                <?php foreach ($novedadesFooterArray as $key => $valor): ?>
+                                    <?php $filter = array("cod = '$valor[cod]'"); ?>
+                                    <?php $imagenesFooterArray = $imagenesFooter->list($filter,"",""); ?>  
+                                    <li>
+                                        <div class="latest-news-image">
+                                            <a href="<?=URL?>/articulo/<?=$valor['titulo']?>/<?=$valor['cod']?>"><img src="<?=URL?>/<?=$imagenesFooterArray[0]['ruta']?>" alt=""></a>
+                                        </div>
+                                        <div class="latest-news-info">
+                                            <h6><a href="<?=URL?>/articulo/<?=$valor['titulo']?>/<?=$valor['cod']?>"><?=$valor['titulo']?></a></h6>
+                                            <?=substr($valor['desarrollo'],0,50)?>..
+                                        </div>
+                                    </li>
+                                <?php endforeach; ?>
                             </ul>
                         </div>
                     </div>
@@ -76,10 +65,29 @@
                             <h6 class="footer-titel">CONTACTO RÁPIDO</h6>
                             <div class="footer-contact">
                                 <p>Lorem ipsum dolor sit amet, consectetur acinglit sed do eiusmod tempor</p>
-                                <form  id="contact-form-2" action="mail_footer.php" method="post">
-                                    <input type="email" name="email2" placeholder="Type your E-mail address...">
-                                    <textarea name="message2" placeholder="Write here..."></textarea>
-                                    <button type="submit" value="send">Send</button>
+                                <?php if (isset($_POST["enviar"])): ?>
+                                    <?php
+                                    $nombre   = $funcion->antihack_mysqli(isset($_POST["nombreFooter"]) ? $_POST["nombreFooter"] : '');
+                                    $email    = $funcion->antihack_mysqli(isset($_POST["emailFooter"]) ? $_POST["emailFooter"] : '');
+                                    $consulta = $funcion->antihack_mysqli(isset($_POST["consultaFooter"]) ? $_POST["consultaFooter"] : '');
+
+                                    $mensajeFinal = "<b>Nombre</b>: " . $nombre . " <br/>";
+                                    $mensajeFinal .= "<b>Email</b>: " . $email . "<br/>";
+                                    $mensajeFinal .= "<b>Consulta</b>: " . $consulta . "<br/>";
+
+                                    $correo->set("asunto", "Consulta web");
+                                    $correo->set("receptor", $email);
+                                    $correo->set("emisor", EMAIL);
+                                    $correo->set("mensaje", $mensajeFinal);
+
+                                    $correo->emailEnviar();
+                                    ?>
+                                <?php endif?>
+                                <form  id="contact-form-2" method="post">
+                                    <input type="text" name="nombreFooter" placeholder="Nombre Completo">
+                                    <input type="email" name="emailFooter" placeholder="Email">
+                                    <textarea name="consultaFooter" placeholder="Escribe tu consulta"></textarea>
+                                    <button type="submit" name="enviar" value="enviar">Enviar</button>
                                 </form>
                                 <p class="form-messege"></p>
                             </div>

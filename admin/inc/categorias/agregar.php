@@ -1,4 +1,5 @@
 <?php
+$campos = ["novedades", "productos", "no_sliders", "no_portfolio", "no_servicios", "no_galerias"];
 $categorias = new Clases\Categorias(); 
 $imagenes  = new Clases\Imagenes();  
 $zebra     = new Clases\Zebra_Image();
@@ -56,12 +57,12 @@ if (isset($_POST["agregar"])) {
         <label class="col-md-4">Área:<br/>
             <select name="area">
                 <option value="" disabled selected>-- categorías --</option>
-                <option value="sliders">Sliders</option>
-                <option value="novedades">Novedades</option>
-                <option value="portfolio">Portfolio</option>
-                <option value="servicios">Servicios</option>
-                <option value="galerias">Galerias</option>
-                <option value="productos">Productos</option>
+                <option class="<?php if (!in_array('sliders', $campos)) {echo 'd-none';}?>" value="sliders">Sliders</option>
+                <option class="<?php if (!in_array('novedades', $campos)) {echo 'd-none';}?>" value="novedades">Novedades</option>
+                <option class="<?php if (!in_array('portfolio', $campos)) {echo 'd-none';}?>" value="portfolio">Portfolio</option>
+                <option class="<?php if (!in_array('servicios', $campos)) {echo 'd-none';}?>" value="servicios">Servicios</option>
+                <option class="<?php if (!in_array('galerias', $campos)) {echo 'd-none';}?>" value="galerias">Galerias</option>
+                <option class="<?php if (!in_array('productos', $campos)) {echo 'd-none';}?>" value="productos">Productos</option>
             </select>
         </label> 
         <div class="clearfix"></div>

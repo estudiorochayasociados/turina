@@ -1,5 +1,6 @@
 <?php
-$pages = ["contenidos", "novedades", "multimedia", "usuarios", "banners", "productos", "portfolio", "servicios", "configuracion", "categorias"];
+$pages = ["contenidos", "multimedia", "productos", "configuracion", "categorias"];
+$subpages = ["novedades", "videos"];
 ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-30">
     <div class="col-md-12">
@@ -36,20 +37,17 @@ $pages = ["contenidos", "novedades", "multimedia", "usuarios", "banners", "produ
                         Multimedia
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="<?=URL?>/index.php?op=novedades&accion=ver">
+                        <a class="dropdown-item <?php if (!in_array('novedades', $subpages)) {echo 'd-none';}?>" href="<?=URL?>/index.php?op=novedades&accion=ver">
                             Novedades
                         </a>
-                        <a class="dropdown-item" href="<?=URL?>/index.php?op=videos&accion=ver">
+                        <a class="dropdown-item <?php if (!in_array('videos', $subpages)) {echo 'd-none';}?>" href="<?=URL?>/index.php?op=videos&accion=ver">
                             Videos
                         </a>
-                        <a class="dropdown-item" href="<?=URL?>/index.php?op=sliders&accion=ver">
+                        <a class="dropdown-item <?php if (!in_array('sliders', $subpages)) {echo 'd-none';}?>" href="<?=URL?>/index.php?op=sliders&accion=ver">
                             Sliders
                         </a>
-                        <a class="dropdown-item" href="<?=URL?>/index.php?op=galerias&accion=ver">
+                        <a class="dropdown-item <?php if (!in_array('galerias', $subpages)) {echo 'd-none';}?>" href="<?=URL?>/index.php?op=galerias&accion=ver">
                             Galerias
-                        </a>
-                        <a class="dropdown-item" href="<?=URL?>/index.php?op=banners&accion=ver">
-                            Banners
                         </a>
                     </div>
                 </li>

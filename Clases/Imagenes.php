@@ -71,35 +71,13 @@ class Imagenes
         $row      = mysqli_fetch_assoc($imagenes);
         if ($row===NULL) {
             $row['ruta']      =  "assets/archivos/sin_imagen.jpg";
-        return $row;
+            return $row;
         }else {
-        return $row;
+            return $row;
         }
     }
 
-    function listForProduct() {
-        $array = array();
-        $sql   = "SELECT * FROM `imagenes` WHERE cod = '{$this->cod}' ORDER BY id ASC";
-        $notas = $this->con->sqlReturn($sql);
-
-       // if ($notas) {
-       //     while ($row = mysqli_fetch_assoc($notas)) {
-       //         $array[] = $row;
-       //     }
-       //     return $array;
-       // }
-        if ($notas===NULL) {
-            $row['ruta']      =  "assets/archivos/sin_imagen.jpg";
-        return $row;
-        }else {
-            while ($row = mysqli_fetch_assoc($notas)) {
-                 $array[] = $row;
-             }
-             return $array;
-        }
-    }
-    
-    function list($filter) {
+    function list($filter,$order,$limit) {
         $array = array();
         if (is_array($filter)) {
             $filterSql = "WHERE ";
@@ -108,15 +86,41 @@ class Imagenes
             $filterSql = '';
         }
 
-        $sql   = "SELECT * FROM `imagenes` $filterSql  ORDER BY id ASC";
-        $notas = $this->con->sqlReturn($sql);
+        if ($order != '') {
+            $orderSql = $order;
+        } else {
+            $orderSql = "id DESC";
+        }
 
+        if ($limit != '') {
+            $limitSql = "LIMIT " . $limit;
+        } else {
+            $limitSql = '';
+        }
+
+        $sql = "SELECT * FROM `imagenes` $filterSql  ORDER BY $orderSql $limitSql";
+        $notas = $this->con->sqlReturn($sql);
         if ($notas) {
             while ($row = mysqli_fetch_assoc($notas)) {
                 $array[] = $row;
             }
-            return $array;
+            return $array ;
         }
+    }
+
+    function paginador($filter,$cantidad) {
+        $array = array();
+        if (is_array($filter)) {
+            $filterSql = "WHERE ";
+            $filterSql .= implode(" AND ", $filter);
+        } else {
+            $filterSql = '';
+        }
+        $sql = "SELECT * FROM `imagenes` $filterSql";
+        $contar = $this->con->sqlReturn($sql);
+        $total = mysqli_num_rows($contar);
+        $totalPaginas = $total / $cantidad;
+        return floor($totalPaginas);
     }
 
     public function imagenesAdmin()

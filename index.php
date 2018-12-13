@@ -3,21 +3,21 @@ require_once "Config/Autoload.php";
 Config\Autoload::runSitio();
 $template = new Clases\TemplateSite();
 $funciones = new Clases\PublicFunction();
-$template->set("title", "Turina Inmboliaria");
+$template->set("title", TITULO);
 $template->set("description", "");
 $template->set("keywords", "");
 $template->set("imagen", LOGO);
 $template->themeInit();
 //Clases
 $productos = new Clases\Productos();
-$productosArray = $productos->list("");
+$productosArray = $productos->list("","",6);
 $imagenes = new Clases\Imagenes();
 $novedades = new Clases\Novedades();
-$novedadesArray = $novedades->list("");
+$novedadesArray = $novedades->list("","",6);
 ?>
 
 <!-- SLIDER SECTION START -->
-<div class="slider-3 youtube-bg bg-opacity-black-10">
+<div class="slider-3 youtube-bg bg-opacity-black-10 hidden-sm hidden-xs">
     <div class="slider-content-3 text-center">
         <div class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
             <h1 class="slider-1-title-2">ENCONTRÁ LA CASA DE TUS SUEÑOS</h1>
@@ -47,20 +47,20 @@ $novedadesArray = $novedades->list("");
                     <?php foreach ($productosArray as $key => $valor): ?>
                         <?php $medidas = explode("x",$valor['var2']); ?>
                         <?php $filter = array("cod = '$valor[cod]'"); ?>
-                        <?php $imagenesArray = $imagenes->list($filter); ?>                        
+                        <?php $imagenesArray = $imagenes->list($filter,"",""); ?>                        
                         <div class="col-md-4 col-sm-6 col-xs-12">
                             <div class="flat-item">
                                 <div class="flat-item-image">
                                     <span class="for-sale"><?=$valor['var4']?></span>
                                     <a href="<?=URL?>/producto/<?=$valor['titulo']?>/<?=$valor['id']?>">
-                                        <img src="<?=$imagenesArray[0]['ruta']?>" alt="">
+                                        <img src="<?=URL?>/<?=$imagenesArray[0]['ruta']?>" alt="">
                                     </a>
                                     <div class="flat-link">
                                         <a href="<?=URL?>/producto/<?=$valor['titulo']?>/<?=$valor['id']?>">Más detalles</a>
                                     </div>
                                     <ul class="flat-desc">
                                         <li>
-                                            <img src="images/icons/4.png" alt="">
+                                            <img src="<?=URL?>/assets/images/icons/4.png" alt="">
                                             <span><?=$valor['var1']?> m².</span>
                                         </li>
                                         <li>
@@ -80,7 +80,7 @@ $novedadesArray = $novedades->list("");
                                         </h5>
                                         <span class="price">$<?=$valor['precio']?></span>
                                     </div>
-                                    <p><img src="images/icons/location.png" alt=""><?=$valor['var3']?></p>
+                                    <p><img src="<?=URL?>/assets/images/icons/location.png" alt=""><?=$valor['var3']?></p>
                                 </div>
                             </div>
                         </div>
@@ -167,23 +167,23 @@ $novedadesArray = $novedades->list("");
                     <?php foreach ($novedadesArray as $key => $valor): ?>
                         <?php $fecha = explode('-',$valor['fecha']); ?>
                         <?php $filter = array("cod = '$valor[cod]'"); ?>
-                        <?php $imagenesArray = $imagenes->list($filter); ?>  
+                        <?php $imagenesArray = $imagenes->list($filter,"",""); ?>  
                         <div class="col-md-12">
                             <article class="blog-item bg-gray">
                                 <div class="blog-image">
-                                    <a href="<?=URL?>/novedad/<?=$valor['titulo']?>/<?=$valor['cod']?>">
+                                    <a href="<?=URL?>/articulo/<?=$valor['titulo']?>/<?=$valor['cod']?>">
                                         <div class="contimg">
-                                            <img src="<?=$imagenesArray[0]['ruta']?>" height="100%" alt="<?=$valor['titulo']?>" title="<?=$valor['titulo']?>">
+                                            <img src="<?=URL?>/<?=$imagenesArray[0]['ruta']?>" height="100%" alt="<?=$valor['titulo']?>" title="<?=$valor['titulo']?>">
                                         </div>
                                     </a>
                                 </div>
                                 <div class="blog-info">
                                     <div class="post-title-time">
-                                        <h5><a href="<?=URL?>/novedad/<?=$valor['titulo']?>/<?=$valor['cod']?>"><?=$valor['titulo']?></a></h5>
+                                        <h5><a href="<?=URL?>/articulo/<?=$valor['titulo']?>/<?=$valor['cod']?>"><?=$valor['titulo']?></a></h5>
                                         <p><?=$fecha[2]?>/<?=$fecha[1]?>/<?=$fecha[0]?></p>
                                     </div>
                                     <?=substr($valor['desarrollo'],0,180)?>..
-                                    <a class="read-more" href="<?=URL?>/novedad/<?=$valor['titulo']?>/<?=$valor['cod']?>">Leer más</a>
+                                    <a class="read-more" href="<?=URL?>/articulo/<?=$valor['titulo']?>/<?=$valor['cod']?>">Leer más</a>
                                 </div>
                             </article>
                         </div>

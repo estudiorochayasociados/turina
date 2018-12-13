@@ -71,7 +71,7 @@ class Pedidos
         return $row;
     }
 
-    function list($filter) {
+    function list($filter,$order,$limit) {
         $array = array();
         if (is_array($filter)) {
             $filterSql = "WHERE ";
@@ -80,14 +80,40 @@ class Pedidos
             $filterSql = '';
         }
 
-        $sql   = "SELECT * FROM `pedidos` $filterSql  ORDER BY id DESC";
-        $notas = $this->con->sqlReturn($sql);
+        if ($order != '') {
+            $orderSql = $order;
+        } else {
+            $orderSql = "id DESC";
+        }
 
+        if ($limit != '') {
+            $limitSql = "LIMIT " . $limit;
+        } else {
+            $limitSql = '';
+        }
+
+        $sql = "SELECT * FROM `pedidos` $filterSql  ORDER BY $orderSql $limitSql";
+        $notas = $this->con->sqlReturn($sql);
         if ($notas) {
             while ($row = mysqli_fetch_assoc($notas)) {
                 $array[] = $row;
             }
-            return $array;
+            return $array ;
         }
+    }
+
+    function paginador($filter,$cantidad) {
+        $array = array();
+        if (is_array($filter)) {
+            $filterSql = "WHERE ";
+            $filterSql .= implode(" AND ", $filter);
+        } else {
+            $filterSql = '';
+        }
+        $sql = "SELECT * FROM `pedidos` $filterSql";
+        $contar = $this->con->sqlReturn($sql);
+        $total = mysqli_num_rows($contar);
+        $totalPaginas = $total / $cantidad;
+        return floor($totalPaginas);
     }
 }

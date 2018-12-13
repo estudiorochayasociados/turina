@@ -57,26 +57,7 @@ class Categorias
         return $row;
     }
 
-    function list($filter) {
-        $array = array();
-        if (is_array($filter)) {
-            $filterSql = "WHERE ";
-            $filterSql .= implode(" AND ", $filter);
-        } else {
-            $filterSql = '';
-        }
-
-        $sql = "SELECT * FROM `categorias` $filterSql  ORDER BY id DESC";
-         $notas = $this->con->sqlReturn($sql);
-        if ($notas) {
-            while ($row = mysqli_fetch_assoc($notas)) {
-                $array[] = $row;
-            }
-            return $array;
-        }
-    }
-
-    function listWithOps($filter,$order,$limit) {
+    function list($filter,$order,$limit) {
         $array = array();
         if (is_array($filter)) {
             $filterSql = "WHERE ";
@@ -98,7 +79,6 @@ class Categorias
         }
 
         $sql = "SELECT * FROM `categorias` $filterSql  ORDER BY $orderSql $limitSql";
-        echo $sql;
         $notas = $this->con->sqlReturn($sql);
         if ($notas) {
             while ($row = mysqli_fetch_assoc($notas)) {
@@ -106,40 +86,5 @@ class Categorias
             }
             return $array ;
         }
-    }
-
-    function listForArea($limit) {
-        $array = array();
-        if ($limit != '') {
-            $limitSql = "LIMIT " . $limit;
-        } else {
-            $limitSql = '';
-        }
-        $sql = "SELECT * FROM `categorias` WHERE area = '{$this->area}'  ORDER BY id DESC $limitSql";
-        $notas = $this->con->sqlReturn($sql);
-        if ($notas) {
-            while ($row = mysqli_fetch_assoc($notas)) {
-                $array[] = $row;
-            }
-            return $array;
-        }
-    }
-
-
-    function listForSearch($limit) {
-        $array = array();
-        if ($limit != '') {
-            $limitSql = "LIMIT " . $limit;
-        } else {
-            $limitSql = '';
-        }
-        $sql = " SELECT `categorias`.`titulo`,`categorias`.`cod`, count(`productos`.`categoria`)  as cantidad  FROM `productos`,`categorias` WHERE `categoria` = `categorias`.`cod` GROUP BY categoria ORDER BY cantidad  DESC  $limitSql"; 
-         $notas = $this->con->sqlReturn($sql);
-        if ($notas) {
-            while ($row = mysqli_fetch_assoc($notas)) {
-                $array[] = $row;
-            }
-            return $array ;
-        } 
     }
 }

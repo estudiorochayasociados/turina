@@ -20,9 +20,9 @@ if (isset($_POST["agregar"])) {
             <br/>
             <input type="text" name="titulo" value=""  />
         </label>
-        <label class="col-md-12" >Link Video:
+        <label class="col-md-12" >Código del link, ejemplo: https://www.youtube.com/watch?v=<b>CCynXTgd48w</b>
             <br/>
-            <input type="url" name="link" value=""  />
+            <input type="text" name="link" placeholder="CCynXTgd48w" required/>
         </label>
         <div class="clearfix"></div>
         <div class="col-md-12">

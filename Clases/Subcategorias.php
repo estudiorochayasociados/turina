@@ -57,7 +57,7 @@ class Subcategorias
         return $row;
     }
 
-    function list($filter) {
+    function list($filter,$order,$limit) {
         $array = array();
         if (is_array($filter)) {
             $filterSql = "WHERE ";
@@ -66,19 +66,19 @@ class Subcategorias
             $filterSql = '';
         }
 
-        $sql = "SELECT * FROM `subcategorias` $filterSql  ORDER BY titulo ASC";
-         $notas = $this->con->sqlReturn($sql);
-
-        if ($notas) {
-            while ($row = mysqli_fetch_assoc($notas)) {
-                $array[] = $row;
-            }
-            return $array;
+        if ($order != '') {
+            $orderSql = $order;
+        } else {
+            $orderSql = "id DESC";
         }
-    }
 
-    function listForSearch($categoria) {
-        $sql = "SELECT subcategorias.cod, subcategorias.titulo, subcategorias.categoria, count(productos.id) as cantidad FROM subcategorias INNER JOIN productos ON subcategorias.cod = productos.subcategoria where productos.categoria = subcategorias.categoria AND productos.subcategoria = subcategorias.cod group by subcategorias.titulo ORDER BY `cantidad` DESC";
+        if ($limit != '') {
+            $limitSql = "LIMIT " . $limit;
+        } else {
+            $limitSql = '';
+        }
+
+        $sql = "SELECT * FROM `subcategorias` $filterSql  ORDER BY $orderSql $limitSql";
         $notas = $this->con->sqlReturn($sql);
         if ($notas) {
             while ($row = mysqli_fetch_assoc($notas)) {
@@ -86,5 +86,20 @@ class Subcategorias
             }
             return $array ;
         }
+    }
+
+    function paginador($filter,$cantidad) {
+        $array = array();
+        if (is_array($filter)) {
+            $filterSql = "WHERE ";
+            $filterSql .= implode(" AND ", $filter);
+        } else {
+            $filterSql = '';
+        }
+        $sql = "SELECT * FROM `subcategorias` $filterSql";
+        $contar = $this->con->sqlReturn($sql);
+        $total = mysqli_num_rows($contar);
+        $totalPaginas = $total / $cantidad;
+        return floor($totalPaginas);
     }
 }

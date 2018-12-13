@@ -130,40 +130,66 @@ class Usuarios
     public function view_sesion()
     { 
         if(!isset($_SESSION["usuarios"])) 
-       {
-        $_SESSION["usuarios"] = array();
-        return $_SESSION["usuarios"];
-    } else {        
-     return $_SESSION["usuarios"];
-   } 
+        {
+            $_SESSION["usuarios"] = array();
+            return $_SESSION["usuarios"];
+        } else {        
+           return $_SESSION["usuarios"];
+       } 
+   }
+
+   public function validate()
+   {
+    $sql     = "SELECT * FROM `usuarios`WHERE email = '{$this->email}'";
+    $usuario = $this->con->sqlReturn($sql);
+    $row     = mysqli_fetch_assoc($usuario);
+    return $row;
+}
+
+function list($filter,$order,$limit) {
+    $array = array();
+    if (is_array($filter)) {
+        $filterSql = "WHERE ";
+        $filterSql .= implode(" AND ", $filter);
+    } else {
+        $filterSql = '';
     }
 
-    public function validate()
-    {
-        $sql     = "SELECT * FROM `usuarios`WHERE email = '{$this->email}'";
-        $usuario = $this->con->sqlReturn($sql);
-        $row     = mysqli_fetch_assoc($usuario);
-        return $row;
+    if ($order != '') {
+        $orderSql = $order;
+    } else {
+        $orderSql = "id DESC";
     }
 
-    function list($filter) {
-        $array = array();
-        if (is_array($filter)) {
-            $filterSql = "WHERE ";
-            $filterSql .= implode(" AND ", $filter);
-        } else {
-            $filterSql = '';
+    if ($limit != '') {
+        $limitSql = "LIMIT " . $limit;
+    } else {
+        $limitSql = '';
+    }
+
+    $sql = "SELECT * FROM `usuarios` $filterSql  ORDER BY $orderSql $limitSql";
+    $notas = $this->con->sqlReturn($sql);
+    if ($notas) {
+        while ($row = mysqli_fetch_assoc($notas)) {
+            $array[] = $row;
         }
-
-        $sql   = "SELECT * FROM `usuarios` $filterSql  ORDER BY id DESC";
-        $notas = $this->con->sqlReturn($sql);
-
-        if ($notas) {
-            while ($row = mysqli_fetch_assoc($notas)) {
-                $array[] = $row;
-            }
-            return $array;
-        }
+        return $array ;
     }
+}
+
+function paginador($filter,$cantidad) {
+    $array = array();
+    if (is_array($filter)) {
+        $filterSql = "WHERE ";
+        $filterSql .= implode(" AND ", $filter);
+    } else {
+        $filterSql = '';
+    }
+    $sql = "SELECT * FROM `usuarios` $filterSql";
+    $contar = $this->con->sqlReturn($sql);
+    $total = mysqli_num_rows($contar);
+    $totalPaginas = $total / $cantidad;
+    return floor($totalPaginas);
+}
 
 }

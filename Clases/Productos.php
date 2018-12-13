@@ -99,27 +99,7 @@ class Productos
         return $row;
     }
 
-    function list($filter) {
-        $array = array();
-        if (is_array($filter)) {
-            $filterSql = "WHERE ";
-            $filterSql .= implode(" AND ", $filter);
-        } else {
-            $filterSql = '';
-        }
-
-        $sql   = "SELECT * FROM `productos` $filterSql  ORDER BY id DESC";
-        $notas = $this->con->sqlReturn($sql);
- 
-        if ($notas) {
-            while ($row = mysqli_fetch_assoc($notas)) {
-                $array[] = $row;
-            }
-            return $array;
-        }
-    }
-
-    function listWithOps($filter,$order,$limit) {
+    function list($filter,$order,$limit) {
         $array = array();
         if (is_array($filter)) {
             $filterSql = "WHERE ";
@@ -141,16 +121,13 @@ class Productos
         }
 
         $sql = "SELECT * FROM `productos` $filterSql  ORDER BY $orderSql $limitSql";
-        echo $sql;
-       /* $notas = $this->con->sqlReturn($sql); 
+        $notas = $this->con->sqlReturn($sql); 
         if ($notas) {
             while ($row = mysqli_fetch_assoc($notas)) {
                 $array[] = $row;
             }
             return $array ;
-        } */
-
-
+        } 
     }
 
     function paginador($filter,$cantidad) {

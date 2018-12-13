@@ -2,7 +2,7 @@
 require_once "Config/Autoload.php";
 Config\Autoload::runSitio();
 $template = new Clases\TemplateSite();
-$template->set("title",TITULO . "Contacto | Turina Inmobiliaria");
+$template->set("title","Contacto | ".TITULO);
 $template->set("imagen", LOGO);
 $template->set("keywords", "");
 $template->set("description","");
@@ -13,7 +13,7 @@ $funcion = new Clases\PublicFunction();
 ?>
 
 <!-- BREADCRUMBS AREA START -->
-<div class="breadcrumbs-area bg-opacity-black-70" style="background: url('<?= URL?>/assets/images/bg/5.jpg'); background-size: cover; background-attachment:fixed";>
+<div class="breadcrumbs-area bg-opacity-black-40" style="background: url('<?= URL?>/assets/images/bg/5.jpg'); background-size: cover; background-attachment:fixed";>
   <div class="container">
     <div class="row">
       <div class="col-xs-12">

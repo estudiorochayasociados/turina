@@ -59,7 +59,7 @@ class Sliders
         return $row;
     }
 
-    function list($filter) {
+    function list($filter,$order,$limit) {
         $array = array();
         if (is_array($filter)) {
             $filterSql = "WHERE ";
@@ -68,25 +68,40 @@ class Sliders
             $filterSql = '';
         }
 
-        $sql   = "SELECT * FROM `sliders` $filterSql  ORDER BY id DESC";
-        $notas = $this->con->sqlReturn($sql);
+        if ($order != '') {
+            $orderSql = $order;
+        } else {
+            $orderSql = "id DESC";
+        }
 
+        if ($limit != '') {
+            $limitSql = "LIMIT " . $limit;
+        } else {
+            $limitSql = '';
+        }
+
+        $sql = "SELECT * FROM `sliders` $filterSql  ORDER BY $orderSql $limitSql";
+        $notas = $this->con->sqlReturn($sql);
         if ($notas) {
             while ($row = mysqli_fetch_assoc($notas)) {
                 $array[] = $row;
             }
-            return $array;
+            return $array ;
         }
     }
-    function listForCategory() {
+
+    function paginador($filter,$cantidad) {
         $array = array();
-        $sql = "SELECT * FROM `sliders` WHERE categoria = '{$this->categoria}'  ORDER BY id DESC";
-        $notas = $this->con->sqlReturn($sql);
-        if ($notas) {
-            while ($row = mysqli_fetch_assoc($notas)) {
-                $array[] = $row;
-            }
-            return $array;
+        if (is_array($filter)) {
+            $filterSql = "WHERE ";
+            $filterSql .= implode(" AND ", $filter);
+        } else {
+            $filterSql = '';
         }
+        $sql = "SELECT * FROM `sliders` $filterSql";
+        $contar = $this->con->sqlReturn($sql);
+        $total = mysqli_num_rows($contar);
+        $totalPaginas = $total / $cantidad;
+        return floor($totalPaginas);
     }
 }

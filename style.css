@@ -54,7 +54,7 @@
   6. Custom-content all
   ----------------------------------------*/
 
-.contimg{
+  .contimg{
     height: 240px;
 }
 
@@ -644,6 +644,7 @@
 .blog-info {
     border-bottom: 4px solid #1f223e;
     padding: 15px;
+    height: 220px;
     -webkit-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
 }
@@ -932,7 +933,7 @@
     margin-right: 10px;
 }
 .pro-details-condition-inner {
-    padding: 35px 10px 20px 25px;
+    padding: 0px 10px 20px 25px;
 }
 .pro-details-condition-inner > p > img {
     margin-right: 10px;
@@ -1393,7 +1394,7 @@
     display: none;
 }
 .contact-bg {
-    background: rgba(0, 0, 0, 0.1) url("images/others/contact-2.jpg") no-repeat scroll right center / cover;
+    background: #d6d6d6;
 }
 .contact-messge {
     padding: 50px;
@@ -1415,7 +1416,7 @@
   }*/
 
   .error-area {
-    background: rgba(0, 0, 0, 0.9) url("images/others/error.jpg") no-repeat scroll right top;
+    background: #eaeaea;
     position: relative;
 }
 .error-area:before {

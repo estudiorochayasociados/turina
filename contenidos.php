@@ -2,12 +2,12 @@
 require_once "Config/Autoload.php";
 Config\Autoload::runSitio();
 $template = new Clases\TemplateSite();
-$template->set("title",TITULO . "Empresa | Turina Inmobiliaria");
+$id       = isset($_GET["id"]) ? $_GET["id"] : '';
+$template->set("title",ucwords($id)." | ".TITULO);
 $template->set("imagen", LOGO);
 $template->set("keywords", "");
 $template->set("description","");
 $template->themeInit();
-$id       = isset($_GET["id"]) ? $_GET["id"] : '';
 $contenido     = new Clases\Contenidos();
 $contenido->set("cod", $id);
 $contenidoData = $contenido->view();
