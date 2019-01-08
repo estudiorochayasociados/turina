@@ -13,7 +13,7 @@ $imagenes->set("link", "sliders&accion=modificar");
 
 
 $categorias = new Clases\Categorias();
-$data = $categorias->list(array("area = 'sliders'"),"","");
+$data = $categorias->list(array("area = 'sliders'"));
 
 if ($borrarImg != '') {
     $imagenes->set("id", $borrarImg);
@@ -24,14 +24,14 @@ if ($borrarImg != '') {
 if (isset($_POST["agregar"])) {
     $count = 0;
     $cod = $slide["cod"];
-    $sliders->set("id", $id);
     $sliders->set("cod", $cod);
     $sliders->set("titulo", $funciones->antihack_mysqli(isset($_POST["titulo"]) ? $_POST["titulo"] : ''));
     $sliders->set("subtitulo", $funciones->antihack_mysqli(isset($_POST["subtitulo"]) ? $_POST["subtitulo"] : ''));
     $sliders->set("categoria", $funciones->antihack_mysqli(isset($_POST["categoria"]) ? $_POST["categoria"] : ''));
+    $sliders->set("link", $funciones->antihack_mysqli(isset($_POST["link"]) ? $_POST["link"] : ''));
     $sliders->set("fecha", $funciones->antihack_mysqli(isset($_POST["fecha"]) ? $_POST["fecha"] : date("Y-m-d")));
 
- 
+
     foreach ($_FILES['files']['name'] as $f => $name) {
         $imgInicio = $_FILES["files"]["tmp_name"][0];
         $tucadena  = $name;
@@ -62,7 +62,7 @@ if (isset($_POST["agregar"])) {
         }
 
     }
-     
+
 
     $sliders->edit();
     $funciones->headerMove(URL . "/index.php?op=sliders");
@@ -91,10 +91,14 @@ if (isset($_POST["agregar"])) {
                         echo "<option value='".$categoria["cod"]."' selected>".$categoria["titulo"]."</option>";
                     } else {
                         echo "<option value='".$categoria["cod"]."'>".$categoria["titulo"]."</option>";
-                    } 
+                    }
                 }
                 ?>
             </select>
+        </label>
+        <label class="col-md-12">
+            Link:<br/>
+            <input type="text" value="<?=$slide["link"]?>" name="link">
         </label>
         <div class="col-md-12">
             <div class="row">

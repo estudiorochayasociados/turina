@@ -2,41 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d06e5cdf-69fd-40c2-9307-1de6517dce6d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Clases/Email.php" beforeDir="false" afterPath="$PROJECT_DIR$/Clases/Email.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/inc/banners/agregar.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inc/banners/agregar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/inc/banners/modificar.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inc/banners/modificar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/inc/banners/ver.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inc/banners/ver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/inc/categorias/ver.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inc/categorias/ver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/inc/contenidos/ver.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inc/contenidos/ver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/inc/galerias/agregar.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inc/galerias/agregar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/inc/galerias/modificar.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inc/galerias/modificar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/inc/galerias/ver.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inc/galerias/ver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/inc/novedades/agregar.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inc/novedades/agregar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/inc/novedades/modificar.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inc/novedades/modificar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/inc/novedades/ver.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inc/novedades/ver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/inc/pedidos/ver.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inc/pedidos/ver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/inc/portfolio/agregar.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inc/portfolio/agregar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/inc/portfolio/modificar.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inc/portfolio/modificar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/inc/portfolio/ver.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inc/portfolio/ver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/inc/productos/agregar.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inc/productos/agregar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/inc/productos/modificar.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inc/productos/modificar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/inc/productos/ver.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inc/productos/ver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/inc/servicios/agregar.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inc/servicios/agregar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/inc/servicios/modificar.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inc/servicios/modificar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/inc/servicios/ver.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inc/servicios/ver.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Clases/Sliders.php" beforeDir="false" afterPath="$PROJECT_DIR$/Clases/Sliders.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/inc/sliders/agregar.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inc/sliders/agregar.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/inc/sliders/modificar.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inc/sliders/modificar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/inc/sliders/ver.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inc/sliders/ver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/inc/subcategorias/agregar.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inc/subcategorias/agregar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/inc/subcategorias/modificar.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inc/subcategorias/modificar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/inc/subcategorias/ver.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inc/subcategorias/ver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/inc/usuarios/ver.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inc/usuarios/ver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/inc/videos/ver.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inc/videos/ver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/archivos/recortadas/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/assets/archivos/recortadas/Thumbs.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog.php" beforeDir="false" afterPath="$PROJECT_DIR$/blog.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contacto.php" beforeDir="false" afterPath="$PROJECT_DIR$/contacto.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -51,24 +19,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="agregar.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/inc/videos/agregar.php">
+        <entry file="file://$PROJECT_DIR$/admin/inc/sliders/agregar.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-12" />
+            <state relative-caret-position="600">
+              <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
+            </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="modificar.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/inc/videos/modificar.php">
+        <entry file="file://$PROJECT_DIR$/admin/inc/sliders/modificar.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-27" />
+            <state relative-caret-position="192">
+              <caret line="98" column="25" selection-start-line="98" selection-start-column="25" selection-end-line="98" selection-end-column="25" />
+            </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ver.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/admin/inc/videos/ver.php">
+      <file leaf-file-name="Sliders.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Clases/Sliders.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
+            <state relative-caret-position="340">
+              <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -115,7 +87,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/assets/inc/sideIndex.inc.php" />
         <option value="$PROJECT_DIR$/assets/inc/nav.inc.php" />
         <option value="$PROJECT_DIR$/listing.php" />
         <option value="$PROJECT_DIR$/assets/inc/sideBlog.inc.php" />
@@ -158,14 +129,15 @@
         <option value="$PROJECT_DIR$/admin/inc/servicios/agregar.php" />
         <option value="$PROJECT_DIR$/admin/inc/servicios/modificar.php" />
         <option value="$PROJECT_DIR$/admin/inc/servicios/ver.php" />
-        <option value="$PROJECT_DIR$/admin/inc/sliders/agregar.php" />
-        <option value="$PROJECT_DIR$/admin/inc/sliders/modificar.php" />
         <option value="$PROJECT_DIR$/admin/inc/sliders/ver.php" />
         <option value="$PROJECT_DIR$/admin/inc/subcategorias/agregar.php" />
         <option value="$PROJECT_DIR$/admin/inc/subcategorias/modificar.php" />
         <option value="$PROJECT_DIR$/admin/inc/subcategorias/ver.php" />
         <option value="$PROJECT_DIR$/admin/inc/usuarios/ver.php" />
         <option value="$PROJECT_DIR$/admin/inc/videos/ver.php" />
+        <option value="$PROJECT_DIR$/admin/inc/sliders/agregar.php" />
+        <option value="$PROJECT_DIR$/admin/inc/sliders/modificar.php" />
+        <option value="$PROJECT_DIR$/Clases/Sliders.php" />
       </list>
     </option>
   </component>
@@ -211,20 +183,7 @@
             <path>
               <item name="Turina" type="b2602c69:ProjectViewProjectNode" />
               <item name="Turina" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Turina" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Turina" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="inc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Turina" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Turina" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="inc" type="462c0819:PsiDirectoryNode" />
-              <item name="videos" type="462c0819:PsiDirectoryNode" />
+              <item name="Clases" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -270,12 +229,12 @@
       <workItem from="1544209241263" duration="80000" />
       <workItem from="1544213776319" duration="9638000" />
       <workItem from="1545080380611" duration="184000" />
-      <workItem from="1546961522821" duration="893000" />
+      <workItem from="1546961522821" duration="1144000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44966000" />
+    <option name="totallyTimeSpent" value="45217000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1376" height="744" extended-state="6" />
@@ -320,29 +279,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/checkout.php" />
-    <entry file="file://$PROJECT_DIR$/producto.php" />
-    <entry file="file://$PROJECT_DIR$/Clases/Carrito.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="64" column="31" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/autoload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Clases/Pedidos.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="15" lean-forward="true" selection-start-line="2" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/readme.me">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -557,20 +493,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/inc/sliders/agregar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="25" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/inc/sliders/modificar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="15" column="56" selection-start-line="15" selection-start-column="56" selection-end-line="15" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/inc/sliders/ver.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
@@ -630,6 +552,41 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/inc/footer.inc.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/inc/header.inc.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/inc/nav.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-27" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/index.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/inc/sliders/agregar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/inc/sliders/modificar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="98" column="25" selection-start-line="98" selection-start-column="25" selection-end-line="98" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Clases/Sliders.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
         </state>
       </provider>
     </entry>
