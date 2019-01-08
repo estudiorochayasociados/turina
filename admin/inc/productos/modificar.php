@@ -13,7 +13,7 @@ $imagenes->set("cod", $producto["cod"]);
 $imagenes->set("link", "productos&accion=modificar");
 
 $categorias = new Clases\Categorias();
-$data = $categorias->list(array("area = 'productos'"));
+$data = $categorias->list(array("area = 'productos'"),"","");
 
 if ($borrarImg != '') {
     $imagenes->set("id", $borrarImg);

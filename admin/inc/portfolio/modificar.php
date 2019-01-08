@@ -12,7 +12,7 @@ $imagenes->set("cod", $portfolioInd["cod"]);
 $imagenes->set("link", "portfolio&accion=modificar");
 
 $categorias = new Clases\Categorias();
-$data = $categorias->list(array("area = 'portfolio'"));
+$data = $categorias->list(array("area = 'portfolio'"),"","");
 
 if ($borrarImg != '') {
     $imagenes->set("id", $borrarImg);

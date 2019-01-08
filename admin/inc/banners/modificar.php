@@ -10,7 +10,7 @@ $banners->set("cod", $cod);
 $banner = $banners->view();
 
 $categorias = new Clases\Categorias();
-$data = $categorias->list(array("area = 'banners'"));
+$data = $categorias->list(array("area = 'banners'"),"","");
 
 $imagenes->set("cod", $banner["cod"]);
 $imagenes->set("link", "banners&accion=modificar");

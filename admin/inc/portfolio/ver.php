@@ -2,7 +2,7 @@
 $portfolio = new Clases\Portfolio();
 $imagenes  = new Clases\Imagenes();
 $filter    = array();
-$data = $portfolio->list("");
+$data = $portfolio->list("","","");
 ?>
 <div class="mt-20">
     <div class="col-lg-12 col-md-12">

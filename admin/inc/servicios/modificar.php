@@ -12,7 +12,7 @@ $imagenes->set("cod", $serviciosInd["cod"]);
 $imagenes->set("link", "servicios&accion=modificar");
 
 $categorias = new Clases\Categorias();
-$data = $categorias->list(array("area = 'servicios'"));
+$data = $categorias->list(array("area = 'servicios'"),"","");
 
 if ($borrarImg != '') {
     $imagenes->set("id", $borrarImg);

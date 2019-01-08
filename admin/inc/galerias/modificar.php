@@ -4,7 +4,7 @@ $imagenes = new Clases\Imagenes();
 $zebra    = new Clases\Zebra_Image();
 
 $categorias = new Clases\Categorias();
-$data = $categorias->list(array("area = 'galerias'"));
+$data = $categorias->list(array("area = 'galerias'"),"","");
 
 $cod       = $funciones->antihack_mysqli(isset($_GET["cod"]) ? $_GET["cod"] : '');
 $borrarImg = $funciones->antihack_mysqli(isset($_GET["borrarImg"]) ? $_GET["borrarImg"] : '');

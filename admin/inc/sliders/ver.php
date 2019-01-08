@@ -25,7 +25,7 @@ $imagenes= new Clases\Imagenes();
             <tbody>
                 <?php
                 $filter  = array();
-                $data = $sliders->list("");
+                $data = $sliders->list("","","");
                 if (is_array($data)) {
                     for ($i = 0; $i < count($data); $i++) {
                         echo "<tr>";

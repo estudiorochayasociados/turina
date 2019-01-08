@@ -3,7 +3,7 @@ $galerias = new Clases\Galerias();
 $categorias = new Clases\Categorias();
 $imagenes = new Clases\Imagenes();
 $zebra    = new Clases\Zebra_Image();
-$data = $categorias->list(array("area = 'galerias'"));
+$data = $categorias->list(array("area = 'galerias'"),"","");
 
 if (isset($_POST["agregar"])) {
     $count = 0;

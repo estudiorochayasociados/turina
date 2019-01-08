@@ -10,11 +10,7 @@ RewriteRule ^inicio ./index.php
 RewriteRule ^articulo/(.*)/(.*)$ ./articulo.php?id=$2
 RewriteRule ^c/(.*)/(.*)$ ./contenidos.php?id=$2
 	
-ErrorDocument 404 http://192.168.0.9/Turina/404
-ErrorDocument 400 http://192.168.0.9/Turina/404
-ErrorDocument 401 http://192.168.0.9/Turina/404
-ErrorDocument 403 http://192.168.0.9/Turina/404
-ErrorDocument 500 http://192.168.0.9/Turina/404
+
 
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-f

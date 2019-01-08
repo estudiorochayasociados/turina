@@ -17,7 +17,7 @@ $usuarios = new Clases\Usuarios();
             <tbody>
                <?php
 $filter = array();
-$data   = $usuarios->list("");
+$data   = $usuarios->list("","","");
 if (is_array($data)) {
     for ($i = 0; $i < count($data); $i++) {
         echo "<tr>";

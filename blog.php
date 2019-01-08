@@ -16,7 +16,7 @@ $categorias = new Clases\Categorias();
 $pagina = isset($_GET["pagina"]) ? $_GET["pagina"] : '0';
 $categoria = isset($_GET["categoria"]) ? $_GET["categoria"] : '0';
 
-$cantidad = 4;
+$cantidad = 2;
 
 if ($pagina > 0) {
   $pagina = $pagina - 1;

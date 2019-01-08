@@ -13,7 +13,7 @@ $imagenes->set("link", "sliders&accion=modificar");
 
 
 $categorias = new Clases\Categorias();
-$data = $categorias->list(array("area = 'sliders'"));
+$data = $categorias->list(array("area = 'sliders'"),"","");
 
 if ($borrarImg != '') {
     $imagenes->set("id", $borrarImg);

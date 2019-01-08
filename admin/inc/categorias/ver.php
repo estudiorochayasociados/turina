@@ -2,7 +2,7 @@
 $categorias    = new Clases\Categorias();
 $subcategorias = new Clases\Subcategorias();
 $filter        = array();
-$data = $categorias->list("");
+$data = $categorias->list("","","");
 ?>
 <div class="mt-20">
     <div class="col-lg-12 col-md-12">
@@ -34,7 +34,7 @@ $data = $categorias->list("");
                         echo "<tr>";
                         echo "<td>";
                         echo strtoupper($val["titulo"]);
-                        $subData = $subcategorias->list(array("categoria = '".$val["cod"]."'"));
+                        $subData = $subcategorias->list(array("categoria = '".$val["cod"]."'"),"","");
                         if($subData) {
                             echo "<hr/>";
                             foreach ($subData as $sub) {

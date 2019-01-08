@@ -2,7 +2,7 @@
 $banners = new Clases\Banner();
 $imagenes  = new Clases\Imagenes();
 //$filter = array();
-$data      = $banners->list();
+$data      = $banners->list("","","");
 ?>
 <div class="mt-20">
     <div class="col-lg-12 col-md-12">

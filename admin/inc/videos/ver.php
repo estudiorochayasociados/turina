@@ -1,6 +1,6 @@
 <?php
 $videos = new Clases\Videos();
-$data   = $videos->list("");
+$data   = $videos->list("","","");
 ?>
 <div class="mt-20">
     <div class="col-lg-12 col-md-12">

@@ -4,7 +4,7 @@ $imagenes = new Clases\Imagenes();
 $zebra    = new Clases\Zebra_Image();
 
 $categorias = new Clases\Categorias();
-$data = $categorias->list(array("area = 'sliders'"));
+$data = $categorias->list(array("area = 'sliders'"),"","");
 
 if (isset($_POST["agregar"])) {
     $cod = substr(md5(uniqid(rand())), 0, 10);

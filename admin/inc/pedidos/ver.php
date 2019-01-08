@@ -5,7 +5,7 @@ $filter  = '';
 if ($estado != '') {
     $filter = array("estado = $estado");
 }
-$data = $pedidos->list($filter);
+$data = $pedidos->list($filter,"","");
 ?>
 <div class="mt-20">
     <div class="col-lg-12 col-md-12">

@@ -6,7 +6,7 @@ $subcategorias->set("cod",$_GET["cod"]);
 $dataSubcategoria = $subcategorias->view();
 $categorias->set("cod",$dataSubcategoria["categoria"]);
 $dataCategoria = $categorias->view();
-$cate          = $categorias->list("");
+$cate          = $categorias->list("","","");
 
 if (isset($_POST["agregar"])) {
     $count = 0;

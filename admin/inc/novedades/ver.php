@@ -2,7 +2,7 @@
 $novedades = new Clases\Novedades();
 $imagenes  = new Clases\Imagenes();
 //$filter = array();
-$data      = $novedades->list("");
+$data      = $novedades->list("","","");
 ?>
 <div class="mt-20">
     <div class="col-lg-12 col-md-12">

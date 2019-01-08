@@ -1,7 +1,7 @@
 <?php
 $categorias = new Clases\Categorias(); 
 $filter    = array();
-$data = $categorias->list("");
+$data = $categorias->list("","","");
 ?>
 <div class="mt-20">
     <div class="col-lg-12 col-md-12">

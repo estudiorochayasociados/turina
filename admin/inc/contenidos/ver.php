@@ -21,7 +21,7 @@ $contenidos = new Clases\Contenidos();
             <tbody>
                 <?php
                 $filter     = array();
-                $data = $contenidos->list("");
+                $data = $contenidos->list("","","");
                 if (is_array($data)) {
                     for ($i = 0; $i < count($data); $i++) {
                         echo "<tr>";

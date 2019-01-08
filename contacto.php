@@ -7,7 +7,7 @@ $template->set("imagen", LOGO);
 $template->set("keywords", "");
 $template->set("description","");
 $template->themeInit();
-$correo  = new Clases\Email();
+$enviar  = new Clases\Email();
 $funcion = new Clases\PublicFunction();
 
 ?>
@@ -79,28 +79,38 @@ $funcion = new Clases\PublicFunction();
                         <!-- blog-details-reply -->
                         <div class="leave-review">
                             <h5>Envianos un mensaje</h5>
-                            <?php if (isset($_POST["enviar"])): ?>
-                                <?php
-                                $nombre   = $funcion->antihack_mysqli(isset($_POST["nombre"]) ? $_POST["nombre"] : '');
-                                $email    = $funcion->antihack_mysqli(isset($_POST["email"]) ? $_POST["email"] : '');
+                            <?php if (isset($_POST["enviar"])):
+                                $nombre = $funcion->antihack_mysqli(isset($_POST["nombre"]) ? $_POST["nombre"] : '');
+                                $email = $funcion->antihack_mysqli(isset($_POST["email"]) ? $_POST["email"] : '');
+                                $telefono = $funcion->antihack_mysqli(isset($_POST["telefono"]) ? $_POST["telefono"] : '');
                                 $consulta = $funcion->antihack_mysqli(isset($_POST["consulta"]) ? $_POST["consulta"] : '');
 
                                 $mensajeFinal = "<b>Nombre</b>: " . $nombre . " <br/>";
                                 $mensajeFinal .= "<b>Email</b>: " . $email . "<br/>";
+                                $mensajeFinal .= "<b>Teléfono</b>: " . $telefono . " <br/>";
                                 $mensajeFinal .= "<b>Consulta</b>: " . $consulta . "<br/>";
 
-                                $correo->set("asunto", "Consulta web");
-                                $correo->set("receptor", $email);
-                                $correo->set("emisor", EMAIL);
-                                $correo->set("mensaje", $mensajeFinal);
+                                //USUARIO
+                                $enviar->set("asunto", "Realizaste tu consulta");
+                                $enviar->set("receptor", $email);
+                                $enviar->set("emisor", EMAIL);
+                                $enviar->set("mensaje", $mensajeFinal);
+                                if ($enviar->emailEnviar() == 1):
+                                    echo '<div class="alert alert-success" role="alert">¡Consulta enviada correctamente!</div>';
+                                endif;
 
-                                $correo->emailEnviar();
-                                ?>
-                            <?php endif?>
-                            <form  id="contact-form" method="post">
+                                //ADMIN
+                                $enviar->set("asunto", "Consulta Web");
+                                $enviar->set("receptor", EMAIL);
+                                if ($enviar->emailEnviar() == 0):
+                                    echo '<div class="alert alert-danger" role="alert">¡No se ha podido enviar la consulta!</div>';
+                                endif;
+                            endif; ?>
+                            <form  method="post">
                                 <input type="text" name="nombre" placeholder="Nombre completo">
                                 <input type="email" name="email" placeholder="Email">
-                                <textarea name="mensaje" placeholder="Tu mensaje..."></textarea>
+                                <input type="text" name="telefono" placeholder="Telefono">
+                                <textarea name="consulta" placeholder="Tu consulta..."></textarea>
                                 <button type="submit" name="enviar" class="submit-btn-1">ENVIAR</button>
                             </form>
                             <p class="form-messege mb-0"></p>
