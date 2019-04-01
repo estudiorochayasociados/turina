@@ -3,6 +3,7 @@
 
 <link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.min.css" />
 <link rel="stylesheet" href="<?=URL?>/css/style.css" />
+<link href="<?=URL?>/js/tags/css/bootstrap-tokenfield.css" type="text/css" rel="stylesheet">
 
 <meta charset="UTF-8">
 <title>

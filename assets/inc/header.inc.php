@@ -26,8 +26,9 @@
 <!-- User Estilos -->
 <link rel="stylesheet" href="<?=URL;?>/assets/css/estilos.css">
 <!-- Font-awesome CSS -->
-<link rel="stylesheet" href="<?php echo URL; ?>/assets/css/all.min.css">
-
+<link rel="stylesheet" href="<?=URL; ?>/assets/css/all.min.css">
+<!-- bigimg -->
+<link rel="stylesheet" href="<?=URL;?>/assets/bigimg/lib/view-bigimg.css">
 
 <!-- Modernizr JS -->
 <script src="<?=URL;?>/js/vendor/modernizr-2.8.3.min.js"></script>

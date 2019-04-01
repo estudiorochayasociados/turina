@@ -114,9 +114,7 @@ if (isset($_POST["agregar"])) {
         </label>
         <label class="col-md-12">
             Descripción breve<br/>
-            <textarea name="description">
-                <?=$portfolioInd["description"]?>
-            </textarea>
+            <textarea name="description"><?=$portfolioInd["description"]?></textarea>
         </label>
         <br/>
         <div class="col-md-12">

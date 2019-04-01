@@ -1,5 +1,5 @@
 <?php
-$campos = ["titulo", "precio", "precio_mayorista", "precio_descuento", "stock", "desarrollo", "categoria", "subcategoria", "keywords", "description", "url", "cod_producto", "meli", "imagenes", "var1", "var2", "var3", "var4", "no_var5", "no_var6", "no_var7", "no_var8"];
+$campos = ["titulo", "desarrollo", "categoria", "subcategoria", "keywords", "description", "cod_producto", "meli", "imagenes", "var5"];
 $productos = new Clases\Productos();
 $imagenes  = new Clases\Imagenes();
 $zebra     = new Clases\Zebra_Image();
@@ -131,9 +131,9 @@ if (isset($_POST["agregar"])) {
             <input type="text" name="var4" id="var4">
         </label>
         <div class="clearfix"></div>
-        <label class="col-md-3 <?php if (!in_array('var5', $campos)) {echo 'd-none';}?>" >
-            Var5:<br/>
-            <input type="text" name="var5" id="var5">
+        <label class="col-md-12 <?php if (!in_array('var5', $campos)) {echo 'd-none';}?>" >
+            Lotes vendidos:<br/>
+            <input class="tags" type="text" name="var5" id="var5">
         </label>
         <label class="col-md-3 <?php if (!in_array('var6', $campos)) {echo 'd-none';}?>" >
             Var6:<br/>
@@ -160,8 +160,7 @@ if (isset($_POST["agregar"])) {
         </label>
         <label class="col-md-12 <?php if (!in_array('description', $campos)) {echo 'd-none';}?>" >
             Descripción breve<br/>
-            <textarea name="description">
-            </textarea>
+            <textarea name="description"></textarea>
         </label>
         <br/>
         <div class="col-md-12 <?php if (!in_array('meli', $campos)) {echo 'd-none';}?>" >

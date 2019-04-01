@@ -44,7 +44,7 @@
   color: #95c41f;
 }
 .slider-1-title-2 {
-  font-size: 48px;
+  font-size: 35px;
   font-weight: 700;
   line-height: 1;
   margin-bottom: 15px;
@@ -165,7 +165,7 @@
 }
 .slider-content-3 {
   width: calc(100% - 20%);
-  margin: auto;
+  margin: -50px auto auto auto;
 }
 /*Dotted-overlay*/
 .dotted-overlay {

@@ -7,10 +7,11 @@ class PublicFunction
 
     public function antihack_mysqli($str)
     {
+        $str = $this->antihack($str);
         $con      = new Conexion();
         $conexion = $con->con();
         $str      = mysqli_real_escape_string($conexion, $str);
-        return $str;
+        return trim($str);
     }
 
     public function antihack($str)
@@ -18,7 +19,7 @@ class PublicFunction
         $str = stripslashes($str);
         $str = strip_tags($str);
         $str = htmlentities($str);
-        return $str;
+        return trim($str);
     }
 
     public function headerMove($location)
@@ -78,4 +79,5 @@ class PublicFunction
 
         return $parsedUrl['scheme']. '://'. $parsedUrl['host']. $path. $query;
     }
+
 }
